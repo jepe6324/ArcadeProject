@@ -5,55 +5,43 @@ using UnityEngine.Experimental.Input;
 
 public class Test : MonoBehaviour
 {
-	[SerializeField] private InputAction up;
-	[SerializeField] private InputAction down;
-	[SerializeField] private InputAction right;
-	[SerializeField] private InputAction left;
-
+	[SerializeField] private InputAction movement;
 
 	public FloatReference moveSpeed;
 
-	void Start()
-	{
-
-	}
-
 	void Update()
 	{
-		Vector3 position = this.transform.position;
-
 		if (horizontal != 0)
-			this.transform.Translate(new Vector3(	moveSpeed.value * Time.deltaTime * horizontal,
-													gameObject.transform.position.y));
+			this.transform.Translate(new Vector3(moveSpeed.value * Time.deltaTime * horizontal, 0));
+
+		if (vertical != 0)
+			this.transform.Translate(new Vector3(0, moveSpeed.value * Time.deltaTime * vertical));
 	}
 
-	private float vertical
+	private void Awake()
 	{
-		get
-		{
-			var keyboard = Keyboard.current;
-			var vertical = 0;
-
-			if (keyboard.wKey.isPressed)
-				vertical = 1;
-			else if (keyboard.sKey.isPressed)
-				vertical = -1;
-			return vertical;
-		}
+		movement.performed += OnMovementPerformed;
+		movement.cancelled += OnMovementPerformed;
 	}
 
-	private float horizontal
+	private void OnMovementPerformed(InputAction.CallbackContext context)
 	{
-		get
-		{
-			var keyboard = Keyboard.current;
-			var horizontal = 0;
+		var direction = context.ReadValue<Vector2>();
 
-			if (keyboard.dKey.isPressed)
-				horizontal = 1;
-			else if (keyboard.aKey.isPressed)
-				horizontal = -1;
-			return horizontal;
-		}
+		horizontal = direction.x;
+		vertical = direction.y;
 	}
+
+	private void OnDisable()
+	{
+		movement.Disable();
+	}
+	private void OnEnable()
+	{
+		movement.Enable();
+	}
+
+	private float vertical { get; set; }
+
+	private float horizontal { get; set; }
 }
