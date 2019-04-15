@@ -24,14 +24,22 @@ public class Test : MonoBehaviour, IGameplayActions
 	public FloatReference forwardWalkSpeed;
 	public FloatReference backWalkSpeed;
 
-	Player_State current_state = Player_State.INTRO;
+	Player_State current_state = Player_State.IDLE;
 
 	void Update()
 	{
 		switch (current_state) // Deduce wich state the player is currently in and run it.
 		{
-			case Player_State.INTRO:
-				// Intro.Update(); Or something
+			case Player_State.IDLE:
+				if (direction.x > 0)
+				{
+					transform.Translate(new Vector2(forwardWalkSpeed.value * Time.deltaTime, 0));
+					GetComponent<Animator>().SetBool("Run", true);
+				}
+				else
+					GetComponent<Animator>().SetBool("Run", false);
+				if (direction.x < 0)
+					transform.Translate(new Vector2(-backWalkSpeed.value * Time.deltaTime, 0));
 				break;
 			default:
 				break;
