@@ -3,45 +3,62 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Experimental.Input;
 
-public class Test : MonoBehaviour
+enum Player_State
 {
-	[SerializeField] private InputAction movement;
+	IDLE,
+	FORWARD_WALK,
+	BACK_WALK,
+	ATTACK,
+	HIT_STUN,
+	BLOCK_STUN,
+	INTRO,
+	OUTRO
+}
 
-	public FloatReference moveSpeed;
+public class Test : MonoBehaviour, IGameplayActions
+{
+	public PlayerControls playerControls;
+	private InputAction movement;
+	private InputAction punch;
+
+	public FloatReference forwardWalkSpeed;
+	public FloatReference backWalkSpeed;
+
+	Player_State current_state = Player_State.INTRO;
 
 	void Update()
 	{
-		if (horizontal != 0)
-			this.transform.Translate(new Vector3(moveSpeed.value * Time.deltaTime * horizontal, 0));
+		switch (current_state) // Deduce wich state the player is currently in and run it.
+		{
+			case Player_State.INTRO:
+				// Intro.Update(); Or something
+				break;
+			default:
+				break;
+		}
+	}
 
-		if (vertical != 0)
-			this.transform.Translate(new Vector3(0, moveSpeed.value * Time.deltaTime * vertical));
+	public void OnMovement(InputAction.CallbackContext context)
+	{
+		direction = context.ReadValue<Vector2>();
+	}
+	public void OnPunches(InputAction.CallbackContext context)
+	{
 	}
 
 	private void Awake()
 	{
-		movement.performed += OnMovementPerformed;
-		movement.cancelled += OnMovementPerformed;
+		playerControls.Gameplay.SetCallbacks(this);
 	}
 
-	private void OnMovementPerformed(InputAction.CallbackContext context)
-	{
-		var direction = context.ReadValue<Vector2>();
-
-		horizontal = direction.x;
-		vertical = direction.y;
-	}
-
-	private void OnDisable()
-	{
-		movement.Disable();
-	}
 	private void OnEnable()
 	{
-		movement.Enable();
+		playerControls.Enable();
+	}
+	private void OnDisable()
+	{
+		playerControls.Disable();
 	}
 
-	private float vertical { get; set; }
-
-	private float horizontal { get; set; }
+	private Vector2 direction;
 }

@@ -205,6 +205,7 @@ GameObject:
   - component: {fileID: 2136732786}
   - component: {fileID: 2136732785}
   - component: {fileID: 2136732784}
+  - component: {fileID: 2136732787}
   m_Layer: 0
   m_Name: Test Sprite
   m_TagString: Untagged
@@ -224,88 +225,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd1bfc22fbd6b8498d9865cb62fa402, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movement:
-    m_Name: Movement
-    m_ExpectedControlLayout: 
-    m_Id: 
-    m_Flags: 0
-    m_Processors: 
-    m_Interactions: 
-    m_SingletonActionBindings:
-    - m_Name: 2D Vector
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 4
-    - m_Name: Up
-      m_Path: <Keyboard>/w
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: Down
-      m_Path: <Keyboard>/s
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: Left
-      m_Path: <Keyboard>/a
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: Right
-      m_Path: <Keyboard>/d
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: 2D Vector
-      m_Path: 2DVector
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 4
-    - m_Name: Up
-      m_Path: <Keyboard>/upArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: Down
-      m_Path: <Keyboard>/downArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: Left
-      m_Path: <Keyboard>/leftArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-    - m_Name: Right
-      m_Path: <Keyboard>/rightArrow
-      m_Interactions: 
-      m_Processors: 
-      m_Groups: 
-      m_Action: Movement
-      m_Flags: 8
-  moveSpeed:
+  playerControls:
+    m_Asset: {fileID: 11400000, guid: e6d8121e0029e0d4794ca9b2d8e60c26, type: 3}
+  forwardWalkSpeed:
     useConstant: 0
-    constantValue: 0
+    constantValue: 4
     variable: {fileID: 11400000, guid: 6e1d0aee56f828a4db5fb9659908e332, type: 2}
+  backWalkSpeed:
+    useConstant: 0
+    constantValue: 2
+    variable: {fileID: 11400000, guid: 79845cb1f352a77409ee18c0105f6f24, type: 2}
 --- !u!212 &2136732785
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -343,7 +272,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 5e199b61f544d8240ae95b5ad3b795e9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -368,3 +297,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &2136732787
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136732783}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b95a37972ec3a9045b6a86be015b5c44, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

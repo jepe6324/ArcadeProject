@@ -1,0 +1,106 @@
+{
+    "name": "PlayerControls",
+    "maps": [
+        {
+            "name": "Gameplay",
+            "id": "b907e6a7-2d2f-42a2-9937-f927326ccfb5",
+            "actions": [
+                {
+                    "name": "Movement",
+                    "id": "e8b91b6d-a449-4930-8f0f-12a719422a9e",
+                    "expectedControlLayout": "",
+                    "continuous": false,
+                    "passThrough": false,
+                    "processors": "",
+                    "interactions": "",
+                    "bindings": []
+                },
+                {
+                    "name": "Punches",
+                    "id": "e80c3b2a-0971-48b4-894e-0ec5494e3b1a",
+                    "expectedControlLayout": "",
+                    "continuous": false,
+                    "passThrough": false,
+                    "processors": "",
+                    "interactions": "",
+                    "bindings": []
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "2D Vector",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "chainWithPrevious": false,
+                    "isComposite": true,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                },
+                {
+                    "name": "Up",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": true,
+                    "modifiers": ""
+                },
+                {
+                    "name": "Down",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": true,
+                    "modifiers": ""
+                },
+                {
+                    "name": "Left",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": true,
+                    "modifiers": ""
+                },
+                {
+                    "name": "Right",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Movement",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": true,
+                    "modifiers": ""
+                },
+                {
+                    "name": "",
+                    "path": "<Keyboard>/j",
+                    "interactions": "Press(behavior=2)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Punches",
+                    "chainWithPrevious": false,
+                    "isComposite": false,
+                    "isPartOfComposite": false,
+                    "modifiers": ""
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
