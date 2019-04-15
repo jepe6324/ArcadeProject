@@ -39,7 +39,10 @@ public class Test : MonoBehaviour, IGameplayActions
 				else
 					GetComponent<Animator>().SetBool("Forward Walk", false);
 				if (direction.x < 0)
+				{
 					transform.Translate(new Vector2(-backWalkSpeed.value * Time.deltaTime, 0));
+					GetComponent<Animator>().SetBool("Forward Walk", true);
+				}
 				break;
 			default:
 				break;
