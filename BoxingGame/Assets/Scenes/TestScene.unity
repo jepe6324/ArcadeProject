@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 1628842739}
   - component: {fileID: 1628842738}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: SpriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -426,9 +426,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2136732786}
   - component: {fileID: 2136732784}
-  - component: {fileID: 2136732785}
   m_Layer: 0
-  m_Name: Test Sprite
+  m_Name: Player 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -443,34 +442,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2136732783}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35c606ca6fb1db24eb5000b89089460a, type: 3}
+  m_Script: {fileID: 11500000, guid: a10ce09ed3af9cf438d233dc5eab8af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputHandler: {fileID: 2136732785}
-  backWalkSpeed:
-    useConstant: 0
-    constantValue: 0
-    variable: {fileID: 11400000, guid: 79845cb1f352a77409ee18c0105f6f24, type: 2}
+  lookDirection: 
   forwardWalkSpeed:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 6e1d0aee56f828a4db5fb9659908e332, type: 2}
---- !u!114 &2136732785
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2136732783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dbd1bfc22fbd6b8498d9865cb62fa402, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerControls:
-    m_Asset: {fileID: 11400000, guid: e6d8121e0029e0d4794ca9b2d8e60c26, type: 3}
-  punchButton: 0
-  direction: {x: 0, y: 0}
+  backWalkSpeed:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 79845cb1f352a77409ee18c0105f6f24, type: 2}
+  walkRightButton: Player1Right
+  walkLeftButton: Player1Left
 --- !u!4 &2136732786
 Transform:
   m_ObjectHideFlags: 0

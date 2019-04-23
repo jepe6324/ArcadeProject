@@ -3,8 +3,10 @@ guid: e6d8121e0029e0d4794ca9b2d8e60c26
 ScriptedImporter:
   fileIDToRecycleName:
     11400000: <root>
-    11400002: Gameplay/Punches
-    11400004: Gameplay/Movement
+    11400006: Player 1/Movement
+    11400008: Player 1/Punches
+    11400010: Player 2/Movement
+    11400012: Player 2/Punches
   externalObjects: {}
   userData: 
   assetBundleName: 
