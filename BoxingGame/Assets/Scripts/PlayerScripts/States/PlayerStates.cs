@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class PlayerState
 {
-	[HideInInspector] static public PlayerStateMachine playerFSM;
-	[HideInInspector] static public Animator playerAnimator;
+	[HideInInspector] public PlayerStateMachine playerFSM; // Removed static from these to allow for multiple players
+	[HideInInspector] public Animator playerAnimator;
 	[HideInInspector] public string stateID;
 
-    void Start()
-    {
-    }
+	public PlayerState()
+	{
+	}
 
 	virtual public void StateEnter()
 	{

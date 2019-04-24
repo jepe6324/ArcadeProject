@@ -37,3 +37,67 @@ InputManager:
     type: 0
     axis: 0
     joyNum: 1
+  - serializedVersion: 3
+    m_Name: Player2Left
+    descriptiveName: Makes Player 2 walk left
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: j
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 0
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Player2Right
+    descriptiveName: Makes Player 2 walk right
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: l
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 0
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Player1Punch
+    descriptiveName: Makes Player 1 Punch
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: q
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 0
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1
+  - serializedVersion: 3
+    m_Name: Player2Punch
+    descriptiveName: Makes Player 2 Punch
+    descriptiveNegativeName: 
+    negativeButton: 
+    positiveButton: o
+    altNegativeButton: 
+    altPositiveButton: 
+    gravity: 0
+    dead: 0
+    sensitivity: 0
+    snap: 1
+    invert: 0
+    type: 0
+    axis: 0
+    joyNum: 1

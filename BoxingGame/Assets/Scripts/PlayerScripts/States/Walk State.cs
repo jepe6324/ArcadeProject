@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class PlayerWalk : PlayerState
 {
-	public PlayerWalk()
+	public PlayerWalk(PlayerStateMachine stateMachine)
 	{
 		stateID = "Walk";
+		playerFSM = stateMachine;
+		playerAnimator = stateMachine.GetComponentInChildren<Animator>();
 	}
 
 	override public void StateEnter()
@@ -25,6 +27,8 @@ public class PlayerWalk : PlayerState
 
 	public override void StateUpdate()
 	{
+		playerFSM.UpdateLookDirection();
+
 		if (Input.GetButton(playerFSM.walkRightButton))
 		{
 			if (playerFSM.lookDirection == "Right")
@@ -49,6 +53,6 @@ public class PlayerWalk : PlayerState
 			}
 		}
 		else
-			StateExit(new PlayerIdle());
+			StateExit(new PlayerIdle(playerFSM));
 	}
 }
