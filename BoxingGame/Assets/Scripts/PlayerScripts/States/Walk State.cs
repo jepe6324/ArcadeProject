@@ -34,10 +34,12 @@ public class PlayerWalk : PlayerState
 			if (playerFSM.lookDirection == "Right")
 			{
 				playerFSM.transform.Translate(new Vector2(playerFSM.forwardWalkSpeed.value * Time.deltaTime, 0));
+				stateID = "ForwardWalk";
 			}
 			else
 			{
 				playerFSM.transform.Translate(new Vector2(playerFSM.backWalkSpeed.value * Time.deltaTime, 0));
+				stateID = "BackWalk";
 			}
 		}
 
@@ -46,10 +48,12 @@ public class PlayerWalk : PlayerState
 			if (playerFSM.lookDirection == "Left")
 			{
 				playerFSM.transform.Translate(new Vector2(-playerFSM.forwardWalkSpeed.value * Time.deltaTime, 0));
+				stateID = "ForwardWalk";
 			}
 			else
 			{
 				playerFSM.transform.Translate(new Vector2(-playerFSM.backWalkSpeed.value * Time.deltaTime, 0));
+				stateID = "BackWalk";
 			}
 		}
 		else

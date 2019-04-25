@@ -16,7 +16,10 @@ MonoBehaviour:
   startUpTime: 0.1
   punchID: Straight Punch
   damage: 10
-  activeTime: 0.4
+  knockBackDistance: 0.4
+  hitStun: 0.5
+  blockStun: 0.2
+  activeTime: 0.3
   sizeX: 1.57
   sizeY: 0.7
   posX: 0.99

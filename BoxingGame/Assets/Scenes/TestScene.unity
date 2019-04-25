@@ -413,9 +413,14 @@ PrefabInstance:
       propertyPath: otherPlayerFSM
       value: 
       objectReference: {fileID: 2136732784}
+    - target: {fileID: 93338940302313635, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 114329416, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
       propertyPath: m_BodyType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114329416, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
       propertyPath: m_CollisionDetection
@@ -429,8 +434,7 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 114329416, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
 --- !u!1001 &7717913584358405315
 PrefabInstance:
@@ -504,9 +508,14 @@ PrefabInstance:
       propertyPath: otherPlayerFSM
       value: 
       objectReference: {fileID: 114329413}
+    - target: {fileID: 7717913586416468146, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2136732785, guid: 57f1d98e8fe6e69479476ba708ff8551, type: 3}
       propertyPath: m_BodyType
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2136732785, guid: 57f1d98e8fe6e69479476ba708ff8551, type: 3}
       propertyPath: m_CollisionDetection
@@ -516,6 +525,5 @@ PrefabInstance:
       propertyPath: m_Interpolate
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2136732785, guid: 57f1d98e8fe6e69479476ba708ff8551, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57f1d98e8fe6e69479476ba708ff8551, type: 3}

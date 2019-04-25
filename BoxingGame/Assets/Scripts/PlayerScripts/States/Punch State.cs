@@ -16,6 +16,10 @@ public class PlayerPunch : PlayerState
 	public float posX;
 	public float posY;
 
+	public float knockBackDistance;
+	public float hitStun;
+	public float blockStun;
+
 	private bool donePunch;
 
 	public PlayerPunch(PlayerStateMachine stateMachine, PunchScriptableObject punch)
@@ -33,6 +37,9 @@ public class PlayerPunch : PlayerState
 		sizeY = punch.sizeY;
 		posX = punch.posX;
 		posY = punch.posY;
+		knockBackDistance = punch.knockBackDistance;
+		hitStun = punch.hitStun;
+		blockStun = punch.blockStun;
 	}
 
 	override public void StateEnter()
@@ -63,11 +70,11 @@ public class PlayerPunch : PlayerState
 			GameObject clone = GameObject.Instantiate(playerFSM.hitboxPrefab, playerFSM.transform);
 			if (playerFSM.lookDirection == "Right")
 			{
-				clone.GetComponent<Hitbox>().SetVariables(activeTime, sizeX, sizeY, posX, posY);
+				clone.GetComponent<Hitbox>().SetVariables(activeTime, sizeX, sizeY, posX, posY, hitStun, blockStun, knockBackDistance);
 			}
 			else // Left, if I knew more about ternary operators this would probably be prettier
 			{
-				clone.GetComponent<Hitbox>().SetVariables(activeTime, sizeX, sizeY, -posX, posY);
+				clone.GetComponent<Hitbox>().SetVariables(activeTime, sizeX, sizeY, -posX, posY, hitStun, blockStun, knockBackDistance);
 			}
 		}
 	}
