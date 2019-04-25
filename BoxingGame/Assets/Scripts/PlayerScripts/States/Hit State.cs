@@ -21,6 +21,7 @@ public class HitState : PlayerState
 	{
 		playerAnimator.SetTrigger("Hit");
 		knockBackFactor = knockBackDistance / hitStun;
+        AudioManager.PlayMusic("punch");
 	}
 
 	public override void StateExit(PlayerState nextState)

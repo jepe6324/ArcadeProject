@@ -46,7 +46,8 @@ public class PlayerPunch : PlayerState
 	{
 		donePunch = false;
 		playerAnimator.SetTrigger("Punch");
-	}
+        AudioManager.PlayMusic("woosh");
+    }
 
 	override public void StateExit(PlayerState nextState)
 	{

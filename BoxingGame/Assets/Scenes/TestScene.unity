@@ -249,7 +249,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c650ec822cb50304e9c4c6111c09b254, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioFiles: []
+  audioFiles:
+  - audioName: woosh
+    audioClip: {fileID: 8300000, guid: 524503330b020664c8b2dadf8dcb0315, type: 3}
+    volume: 0.883
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: punch
+    audioClip: {fileID: 8300000, guid: 988653c15b4c75f47a4da8302e87471f, type: 3}
+    volume: 0.779
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: dodge
+    audioClip: {fileID: 8300000, guid: 6a38b93cb69c4c340abfa75a980ca60e, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: Background Music
+    audioClip: {fileID: 8300000, guid: adcda241256420c43a0534d8b529aa72, type: 3}
+    volume: 0.202
+    source: {fileID: 0}
+    isLooping: 1
+    playOnAwake: 1
 --- !u!1 &1146114034
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,6 +377,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 2
       objectReference: {fileID: 0}
+    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: otherPlayerFSM
+      value: 
+      objectReference: {fileID: 2136732784}
     - target: {fileID: 93338940302313634, guid: ff7c0c410f71f254a891c8959ccfeac4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -408,11 +437,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: otherPlayerFSM
-      value: 
-      objectReference: {fileID: 2136732784}
     - target: {fileID: 93338940302313635, guid: ff7c0c410f71f254a891c8959ccfeac4,
         type: 3}
       propertyPath: m_IsTrigger
@@ -448,6 +472,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: otherPlayerFSM
+      value: 
+      objectReference: {fileID: 114329413}
     - target: {fileID: 7717913586416468145, guid: 57f1d98e8fe6e69479476ba708ff8551,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -503,11 +532,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: otherPlayerFSM
-      value: 
-      objectReference: {fileID: 114329413}
     - target: {fileID: 7717913586416468146, guid: 57f1d98e8fe6e69479476ba708ff8551,
         type: 3}
       propertyPath: m_IsTrigger
