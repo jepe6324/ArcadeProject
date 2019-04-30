@@ -45,7 +45,7 @@ public class PlayerPunch : PlayerState
 	override public void StateEnter()
 	{
 		donePunch = false;
-		playerAnimator.SetTrigger("Punch");
+		playerAnimator.SetTrigger(punchID);
         AudioManager.PlayMusic("woosh");
     }
 
@@ -63,12 +63,13 @@ public class PlayerPunch : PlayerState
 		if (duration <= 0)
 		{
 			StateExit(new PlayerIdle(playerFSM));
-			playerAnimator.SetTrigger("Idle");
 		}
 		else if (startUpTime <= 0 && donePunch == false)
 		{
 			donePunch = true;
 			GameObject clone = GameObject.Instantiate(playerFSM.hitboxPrefab, playerFSM.transform);
+			clone.name = punchID;
+
 			if (playerFSM.lookDirection == "Right")
 			{
 				clone.GetComponent<Hitbox>().SetVariables(activeTime, sizeX, sizeY, posX, posY, hitStun, blockStun, knockBackDistance);

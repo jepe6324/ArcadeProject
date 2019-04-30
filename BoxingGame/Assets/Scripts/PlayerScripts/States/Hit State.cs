@@ -46,7 +46,6 @@ public class HitState : PlayerState
 		if (hitStun <= 0)
 		{
 			StateExit(new PlayerIdle(playerFSM));
-			playerAnimator.SetTrigger("Idle");
 		}
 	}
 }

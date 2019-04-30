@@ -27,12 +27,19 @@ public class BlockState : PlayerState
 	public override void StateExit(PlayerState nextState)
 	{
 		playerFSM.currentState = nextState;
+		nextState.StateEnter();
 	}
 
 	public override void StateUpdate()
 	{
 		float deltaTime = Time.deltaTime;
 		blockStun -= deltaTime;
+
+		if (blockStun <= 0)
+		{
+			StateExit(new PlayerIdle(playerFSM));
+			return;
+		}
 
 		if (playerFSM.lookDirection == "Right")
 		{
@@ -41,11 +48,6 @@ public class BlockState : PlayerState
 		else
 		{
 			playerFSM.transform.Translate(new Vector2(knockBackFactor * deltaTime, 0));
-		}
-		if (blockStun <= 0)
-		{
-			StateExit(new PlayerIdle(playerFSM));
-			playerAnimator.SetTrigger("Idle");
 		}
 	}
 }

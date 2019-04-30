@@ -9,18 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48bacdd6e7d8a7f4a806385956fdca93, type: 3}
-  m_Name: Straight Punch
+  m_Script: {fileID: 11500000, guid: 18e3945a879bf194b89d7d2371141ace, type: 3}
+  m_Name: Evade Duration
   m_EditorClassIdentifier: 
-  duration: 0.5
-  startUpTime: 0.1
-  punchID: Punch
-  damage: 10
-  knockBackDistance: 0.4
-  hitStun: 0.5
-  blockStun: 0.2
-  activeTime: 0.1
-  sizeX: 1.57
-  sizeY: 0.7
-  posX: 0.99
-  posY: 1.05
+  value: 1

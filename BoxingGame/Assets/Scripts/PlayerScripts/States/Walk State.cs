@@ -29,6 +29,22 @@ public class PlayerWalk : PlayerState
 	{
 		playerFSM.UpdateLookDirection();
 
+		if (Input.GetButtonDown(playerFSM.evadeButton))
+		{
+			StateExit(new EvadeState(playerFSM));
+		}
+
+		if (Input.GetButtonDown(playerFSM.punchButton))
+		{
+			StateExit(new PlayerPunch(playerFSM, playerFSM.punch));
+			return;
+		}
+		else if (Input.GetButtonDown(playerFSM.uppercutButton))
+		{
+			StateExit(new PlayerPunch(playerFSM, playerFSM.uppercut));
+			return;
+		}
+
 		if (Input.GetButton(playerFSM.walkRightButton))
 		{
 			if (playerFSM.lookDirection == "Right")
@@ -42,7 +58,6 @@ public class PlayerWalk : PlayerState
 				stateID = "BackWalk";
 			}
 		}
-
 		else if (Input.GetButton(playerFSM.walkLeftButton))
 		{
 			if (playerFSM.lookDirection == "Left")

@@ -10,6 +10,9 @@ public class PlayerStateMachine : MonoBehaviour
 	public FloatReference forwardWalkSpeed;
 	public FloatReference backWalkSpeed;
 
+	public FloatReference evadeDuration;
+	public FloatReference evadeInvincibilityTime;
+
 	public PlayerStateMachine otherPlayerFSM;
 	private SpriteRenderer spriteRenderer;
 
@@ -55,15 +58,20 @@ public class PlayerStateMachine : MonoBehaviour
 		return x = (x < a) ? a : ((x > b) ? b : x); 
 	}
 
-	private void GetHit(Vector3 variables)
+	private void GetHit(Variables variables)
 	{
-		if (currentState.stateID == "BackWalk" || currentState.stateID == "Block")
+		if (currentState.stateID == "Evade")
 		{
-			currentState.StateExit(new BlockState(this, variables.y, variables.z));
+			currentState.StateExit(new PlayerIdle(this));
+			return;
+		}
+		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && variables.ID != "Uppercut")
+		{
+			currentState.StateExit(new BlockState(this, variables.blockStun, variables.knockbackDistance));
 		}
 		else
 		{
-			currentState.StateExit(new HitState(this, variables.x, variables.z));
+			currentState.StateExit(new HitState(this, variables.hitStun, variables.knockbackDistance));
 		}
 	}
 
@@ -82,7 +90,6 @@ public class PlayerStateMachine : MonoBehaviour
 			this.transform.Translate(new Vector2(-overlap / 2.0f, 0));
 			other.transform.Translate(new Vector2(overlap / 2.0f, 0));
 		}
-		Debug.Log(name + " " + overlap);
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -111,13 +118,15 @@ public class PlayerStateMachine : MonoBehaviour
 	#region Punches
 	public GameObject hitboxPrefab;
 
-	public PunchScriptableObject straightPunch;
+	public PunchScriptableObject punch;
 	public PunchScriptableObject uppercut;
 	#endregion // Punches
 
 	#region Input
 	public string walkRightButton;
 	public string walkLeftButton;
+	public string evadeButton;
 	public string punchButton;
+	public string uppercutButton;
 	#endregion //Input
 }

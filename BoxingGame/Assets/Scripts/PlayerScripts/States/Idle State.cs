@@ -13,12 +13,14 @@ public class PlayerIdle : PlayerState
 
 	override public void StateEnter()
 	{
+		playerAnimator.SetTrigger("Idle");
 	}
 
 	public override void StateExit(PlayerState nextState)
 	{
 		playerFSM.currentState = nextState;
 		nextState.StateEnter();
+		playerAnimator.ResetTrigger("Idle");
 	}
 
 	public override void StateUpdate()
@@ -29,9 +31,18 @@ public class PlayerIdle : PlayerState
 		{
 			StateExit(new PlayerWalk(playerFSM));
 		}
+		else if (Input.GetButtonDown(playerFSM.evadeButton))
+		{
+			StateExit(new EvadeState(playerFSM));
+		}
 		else if (Input.GetButtonDown(playerFSM.punchButton))
 		{
-			StateExit(new PlayerPunch(playerFSM, playerFSM.straightPunch));
+			StateExit(new PlayerPunch(playerFSM, playerFSM.punch));
+			return;
+		}
+		else if (Input.GetButtonDown(playerFSM.uppercutButton))
+		{
+			StateExit(new PlayerPunch(playerFSM, playerFSM.uppercut));
 			return;
 		}
 	}

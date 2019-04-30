@@ -382,6 +382,40 @@ PrefabInstance:
       propertyPath: otherPlayerFSM
       value: 
       objectReference: {fileID: 2136732784}
+    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: uppercutButton
+      value: Player2Uppercut
+      objectReference: {fileID: 0}
+    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: punch
+      value: 
+      objectReference: {fileID: 11400000, guid: 8911924207aea6744956f3ffbe9d208a,
+        type: 2}
+    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: uppercut
+      value: 
+      objectReference: {fileID: 11400000, guid: d26371ac2845aaa4d93e7395fc6bc3fb,
+        type: 2}
+    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: evadeDuration.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 509386b24c559df46bfa895c12042528,
+        type: 2}
+    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: evadeInvincibilityTime.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: db8633e6d154ce64ca1321abb9511659,
+        type: 2}
+    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: evadeButton
+      value: Player2Evade
+      objectReference: {fileID: 0}
     - target: {fileID: 93338940302313634, guid: ff7c0c410f71f254a891c8959ccfeac4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -477,6 +511,40 @@ PrefabInstance:
       propertyPath: otherPlayerFSM
       value: 
       objectReference: {fileID: 114329413}
+    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: uppercutButton
+      value: Player1Uppercut
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: punch
+      value: 
+      objectReference: {fileID: 11400000, guid: 8911924207aea6744956f3ffbe9d208a,
+        type: 2}
+    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: uppercut
+      value: 
+      objectReference: {fileID: 11400000, guid: d26371ac2845aaa4d93e7395fc6bc3fb,
+        type: 2}
+    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: evadeDuration.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: 509386b24c559df46bfa895c12042528,
+        type: 2}
+    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: evadeInvincibilityTime.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: db8633e6d154ce64ca1321abb9511659,
+        type: 2}
+    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: evadeButton
+      value: Player1Evade
+      objectReference: {fileID: 0}
     - target: {fileID: 7717913586416468145, guid: 57f1d98e8fe6e69479476ba708ff8551,
         type: 3}
       propertyPath: m_LocalPosition.x

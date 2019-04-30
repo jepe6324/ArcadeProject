@@ -5,19 +5,21 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
 	float duration;
-	string ID;
 
-	Vector3 variables;
+	Variables variables;
 
-	public void SetVariables(float duration, float sizeX, float sizeY, float posX, float posY, float hitStun, float blockStun, float knockBackDistance, string ID = "null")
+	public void SetVariables(float duration, float sizeX, float sizeY, float posX, float posY, float hitStun, float blockStun, float knockBackDistance)
 	{
 		BoxCollider2D myCollider = GetComponent<BoxCollider2D>();
 		myCollider.size = new Vector2(sizeX, sizeY);
 		myCollider.offset = new Vector2(posX, posY);
 		this.duration = duration;
-		this.ID = ID;
 
-		variables = new Vector3(hitStun, blockStun, knockBackDistance); // I am just making a vector3 contain those floats
+		variables = new Variables(hitStun, blockStun, knockBackDistance, name); // I am just making a vector3 contain those floats
+	}
+
+	void Start()
+	{
 	}
 
 	void Update()
@@ -32,4 +34,20 @@ public class Hitbox : MonoBehaviour
 		if (other.CompareTag(GetComponentInParent<PlayerStateMachine>().tag) == false)
 			other.BroadcastMessage("GetHit", variables); // send data about what attack just hit the player.
 	}
+}
+
+public class Variables
+{
+	public Variables(float hitStun, float blockStun, float knockbackDistance, string ID)
+	{
+		this.hitStun = hitStun;
+		this.blockStun = blockStun;
+		this.knockbackDistance = knockbackDistance;
+		this.ID = ID;
+	}
+
+	public float hitStun;
+	public float blockStun;
+	public float knockbackDistance;
+	public string ID;
 }

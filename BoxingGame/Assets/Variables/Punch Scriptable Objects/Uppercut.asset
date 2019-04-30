@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 48bacdd6e7d8a7f4a806385956fdca93, type: 3}
-  m_Name: Straight Punch
+  m_Name: Uppercut
   m_EditorClassIdentifier: 
   duration: 0.5
   startUpTime: 0.1
-  punchID: Punch
+  punchID: Uppercut
   damage: 10
-  knockBackDistance: 0.4
-  hitStun: 0.5
-  blockStun: 0.2
+  knockBackDistance: 0.7
+  hitStun: 0.7
+  blockStun: 0
   activeTime: 0.1
-  sizeX: 1.57
-  sizeY: 0.7
-  posX: 0.99
-  posY: 1.05
+  sizeX: 0.85
+  sizeY: 2.07
+  posX: 0.48
+  posY: 2.07
