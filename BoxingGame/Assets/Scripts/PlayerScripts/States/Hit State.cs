@@ -27,6 +27,7 @@ public class HitState : PlayerState
 	public override void StateExit(PlayerState nextState)
 	{
 		playerFSM.currentState = nextState;
+		nextState.StateEnter();
 	}
 
 	public override void StateUpdate()
