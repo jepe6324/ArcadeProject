@@ -6,16 +6,22 @@ public class Hitbox : MonoBehaviour
 {
 	float duration;
 
-	Variables variables;
+	PunchScriptableObject punch;
 
-	public void SetVariables(float duration, float sizeX, float sizeY, float posX, float posY, float hitStun, float blockStun, float knockBackDistance)
+	public void SetVariables(PunchScriptableObject punch, string direction)
 	{
 		BoxCollider2D myCollider = GetComponent<BoxCollider2D>();
-		myCollider.size = new Vector2(sizeX, sizeY);
-		myCollider.offset = new Vector2(posX, posY);
-		this.duration = duration;
-
-		variables = new Variables(hitStun, blockStun, knockBackDistance, name); // I am just making a vector3 contain those floats
+		myCollider.size = new Vector2(punch.sizeX, punch.sizeY);
+		if (direction == "Right")
+		{
+			myCollider.offset = new Vector2(punch.posX, punch.posY);
+		}
+		else
+		{
+			myCollider.offset = new Vector2(-punch.posX, punch.posY);
+		}
+		this.duration = punch.duration;
+		this.punch = punch;
 	}
 
 	void Start()
@@ -32,22 +38,6 @@ public class Hitbox : MonoBehaviour
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.CompareTag(GetComponentInParent<PlayerStateMachine>().tag) == false)
-			other.BroadcastMessage("GetHit", variables); // send data about what attack just hit the player.
+			other.BroadcastMessage("GetHit", punch); // send data about what attack just hit the player.
 	}
-}
-
-public class Variables
-{
-	public Variables(float hitStun, float blockStun, float knockbackDistance, string ID)
-	{
-		this.hitStun = hitStun;
-		this.blockStun = blockStun;
-		this.knockbackDistance = knockbackDistance;
-		this.ID = ID;
-	}
-
-	public float hitStun;
-	public float blockStun;
-	public float knockbackDistance;
-	public string ID;
 }

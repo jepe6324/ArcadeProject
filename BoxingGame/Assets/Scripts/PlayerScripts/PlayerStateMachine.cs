@@ -9,6 +9,7 @@ public class PlayerStateMachine : MonoBehaviour
 
 	public FloatReference forwardWalkSpeed;
 	public FloatReference backWalkSpeed;
+	public FloatReference health;
 
 	public FloatReference evadeDuration;
 	public FloatReference evadeInvincibilityTime;
@@ -58,20 +59,20 @@ public class PlayerStateMachine : MonoBehaviour
 		return x = (x < a) ? a : ((x > b) ? b : x); 
 	}
 
-	private void GetHit(Variables variables)
+	private void GetHit(PunchScriptableObject Punch)
 	{
 		if (currentState.stateID == "Evade")
 		{
 			currentState.StateExit(new PlayerIdle(this));
 			return;
 		}
-		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && variables.ID != "Uppercut")
+		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && punch.punchID != "Uppercut")
 		{
-			currentState.StateExit(new BlockState(this, variables.blockStun, variables.knockbackDistance));
+			currentState.StateExit(new BlockState(this, punch.blockStun, punch.knockbackDistance));
 		}
-		else
+		else // This is for when the player actually get's hit
 		{
-			currentState.StateExit(new HitState(this, variables.hitStun, variables.knockbackDistance));
+			currentState.StateExit(new HitState(this, punch.hitStun, punch.knockbackDistance));
 		}
 	}
 

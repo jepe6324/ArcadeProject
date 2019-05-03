@@ -6,21 +6,12 @@ public class PlayerPunch : PlayerState
 {
 	public float duration;
 	public float startUpTime;
-
 	public string punchID;
-
-	public float damage;
 	public float activeTime;
-	public float sizeX;
-	public float sizeY;
-	public float posX;
-	public float posY;
-
-	public float knockBackDistance;
-	public float hitStun;
-	public float blockStun;
 
 	private bool donePunch;
+
+	private PunchScriptableObject punch;
 
 	public PlayerPunch(PlayerStateMachine stateMachine, PunchScriptableObject punch)
 	{
@@ -31,15 +22,7 @@ public class PlayerPunch : PlayerState
 		duration = punch.duration;
 		startUpTime = punch.startUpTime;
 		punchID = punch.punchID;
-		damage = punch.damage;
-		activeTime = punch.activeTime;
-		sizeX = punch.sizeX;
-		sizeY = punch.sizeY;
-		posX = punch.posX;
-		posY = punch.posY;
-		knockBackDistance = punch.knockBackDistance;
-		hitStun = punch.hitStun;
-		blockStun = punch.blockStun;
+		this.punch = punch;
 	}
 
 	override public void StateEnter()
@@ -72,11 +55,11 @@ public class PlayerPunch : PlayerState
 
 			if (playerFSM.lookDirection == "Right")
 			{
-				clone.GetComponent<Hitbox>().SetVariables(activeTime, sizeX, sizeY, posX, posY, hitStun, blockStun, knockBackDistance);
+				clone.GetComponent<Hitbox>().SetVariables(punch, "Right");
 			}
 			else // Left, if I knew more about ternary operators this would probably be prettier
 			{
-				clone.GetComponent<Hitbox>().SetVariables(activeTime, sizeX, sizeY, -posX, posY, hitStun, blockStun, knockBackDistance);
+				clone.GetComponent<Hitbox>().SetVariables(punch, "Left");
 			}
 		}
 	}

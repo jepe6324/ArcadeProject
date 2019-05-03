@@ -13,7 +13,7 @@ public class PunchScriptableObject : ScriptableObject
 
 	// Variables for spawning the hitbox
 	public float damage;
-	public float knockBackDistance;
+	public float knockbackDistance;
 	public float hitStun;
 	public float blockStun;
 
