@@ -20,7 +20,7 @@ public class Hitbox : MonoBehaviour
 		{
 			myCollider.offset = new Vector2(-punch.posX, punch.posY);
 		}
-		this.duration = punch.duration;
+		this.duration = punch.activeTime;
 		this.punch = punch;
 	}
 

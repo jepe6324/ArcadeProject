@@ -16,7 +16,6 @@ public class Health : MonoBehaviour
 	public void ReduceHealth(int damage)
 	{
 		currentHealth -= damage;
-		Debug.Log(currentHealth);
 	}
 		
    
