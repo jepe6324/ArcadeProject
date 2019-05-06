@@ -109,6 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7717913586416468145}
   - component: {fileID: 7717913586416468147}
+  - component: {fileID: 136750330110281538}
   - component: {fileID: 7717913586416468146}
   - component: {fileID: 2136732785}
   m_Layer: 0
@@ -154,14 +155,41 @@ MonoBehaviour:
     useConstant: 0
     constantValue: 0
     variable: {fileID: 11400000, guid: 79845cb1f352a77409ee18c0105f6f24, type: 2}
+  evadeDuration:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 0}
+  evadeInvincibilityTime:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 0}
   otherPlayerFSM: {fileID: 0}
   hitboxPrefab: {fileID: 7687397899211539984, guid: 1d32021a3ba4df945bc66f360b6e1e4b,
     type: 3}
-  straightPunch: {fileID: 11400000, guid: 8911924207aea6744956f3ffbe9d208a, type: 2}
+  punch: {fileID: 0}
   uppercut: {fileID: 0}
   walkRightButton: Player1Right
   walkLeftButton: Player1Left
+  evadeButton: 
   punchButton: Player1Punch
+  uppercutButton: 
+--- !u!114 &136750330110281538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7717913586416468140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83075095cca282d448566219dba177b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 0}
+  currentHealth: 100
 --- !u!61 &7717913586416468146
 BoxCollider2D:
   m_ObjectHideFlags: 0

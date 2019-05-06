@@ -9,7 +9,6 @@ public class PlayerStateMachine : MonoBehaviour
 
 	public FloatReference forwardWalkSpeed;
 	public FloatReference backWalkSpeed;
-	public FloatReference health;
 
 	public FloatReference evadeDuration;
 	public FloatReference evadeInvincibilityTime;
@@ -73,7 +72,7 @@ public class PlayerStateMachine : MonoBehaviour
 		else // This is for when the player actually get's hit
 		{
 			currentState.StateExit(new HitState(this, this.punch.hitStun, this.punch.knockbackDistance));
-			// playerHealth -= punch.damage;
+			BroadcastMessage("ReduceHealth", punch.damage);
 		}
 	}
 

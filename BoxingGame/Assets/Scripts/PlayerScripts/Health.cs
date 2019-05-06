@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Health : MonoBehaviour
 {
-	public float maxHealth = 100.0f;
-	public float currentHealth;
+	public FloatReference maxHealth;
+	[HideInInspector] public float currentHealth;
 
 	void Start()
 	{
-		currentHealth = maxHealth;
+		currentHealth = maxHealth.value;
 	}
 		
 
 	public void ReduceHealth(int damage)
 	{
 		currentHealth -= damage;
-
 		Debug.Log(currentHealth);
 	}
 		
@@ -25,7 +24,7 @@ public class Health : MonoBehaviour
 	{
 		if (currentHealth <= 0)
 		{
-			Destroy(gameObject);
+			// Do loose game sequence
 		}
 	}
 }

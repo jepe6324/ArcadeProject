@@ -1073,6 +1073,21 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d74664b2040c1a44f8af105ec990fd51, type: 2}
+    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: maxHealth.useConstant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: maxHealth.constantValue
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
 --- !u!1001 &7717913584358405315
@@ -1203,5 +1218,15 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3600f4a75a2fc7e44897d31ecd6f43fa, type: 2}
+    - target: {fileID: 136750330110281538, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: maxHealth.useConstant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136750330110281538, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: maxHealth.constantValue
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57f1d98e8fe6e69479476ba708ff8551, type: 3}
