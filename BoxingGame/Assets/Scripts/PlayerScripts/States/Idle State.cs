@@ -27,7 +27,11 @@ public class PlayerIdle : PlayerState
 	{
 		playerFSM.UpdateLookDirection();
 
-		if (Input.GetButton(playerFSM.walkRightButton) || Input.GetButton(playerFSM.walkLeftButton))
+		if (Input.GetButton(playerFSM.walkRightButton) && Input.GetButton(playerFSM.walkLeftButton))
+		{
+
+		}
+		else if (Input.GetButton(playerFSM.walkRightButton) || Input.GetButton(playerFSM.walkLeftButton))
 		{
 			StateExit(new PlayerWalk(playerFSM));
 		}

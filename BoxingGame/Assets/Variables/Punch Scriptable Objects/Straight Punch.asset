@@ -16,7 +16,7 @@ MonoBehaviour:
   startUpTime: 0.1
   punchID: Punch
   damage: 10
-  knockBackDistance: 0.4
+  knockbackDistance: 0.4
   hitStun: 0.5
   blockStun: 0.2
   activeTime: 0.1

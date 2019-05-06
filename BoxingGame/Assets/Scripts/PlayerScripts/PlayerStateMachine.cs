@@ -59,20 +59,21 @@ public class PlayerStateMachine : MonoBehaviour
 		return x = (x < a) ? a : ((x > b) ? b : x); 
 	}
 
-	private void GetHit(PunchScriptableObject Punch)
+	private void GetHit(PunchScriptableObject punch)
 	{
 		if (currentState.stateID == "Evade")
 		{
 			currentState.StateExit(new PlayerIdle(this));
 			return;
 		}
-		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && punch.punchID != "Uppercut")
+		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && this.punch.punchID != "Uppercut")
 		{
-			currentState.StateExit(new BlockState(this, punch.blockStun, punch.knockbackDistance));
+			currentState.StateExit(new BlockState(this, this.punch.blockStun, this.punch.knockbackDistance));
 		}
 		else // This is for when the player actually get's hit
 		{
-			currentState.StateExit(new HitState(this, punch.hitStun, punch.knockbackDistance));
+			currentState.StateExit(new HitState(this, this.punch.hitStun, this.punch.knockbackDistance));
+			// playerHealth -= punch.damage;
 		}
 	}
 

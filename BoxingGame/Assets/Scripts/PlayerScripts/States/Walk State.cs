@@ -45,7 +45,11 @@ public class PlayerWalk : PlayerState
 			return;
 		}
 
-		if (Input.GetButton(playerFSM.walkRightButton))
+		if (Input.GetButton(playerFSM.walkRightButton) && Input.GetButton(playerFSM.walkLeftButton))
+		{
+			StateExit(new PlayerIdle(playerFSM));
+		}
+		else if (Input.GetButton(playerFSM.walkRightButton))
 		{
 			if (playerFSM.lookDirection == "Right")
 			{
