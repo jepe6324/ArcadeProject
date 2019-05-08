@@ -59,21 +59,21 @@ MonoBehaviour:
   evadeDuration:
     useConstant: 0
     constantValue: 0
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: 509386b24c559df46bfa895c12042528, type: 2}
   evadeInvincibilityTime:
     useConstant: 0
     constantValue: 0
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: db8633e6d154ce64ca1321abb9511659, type: 2}
   otherPlayerFSM: {fileID: 0}
   hitboxPrefab: {fileID: 7687397899211539984, guid: 1d32021a3ba4df945bc66f360b6e1e4b,
     type: 3}
-  punch: {fileID: 0}
-  uppercut: {fileID: 0}
+  punch: {fileID: 11400000, guid: 8911924207aea6744956f3ffbe9d208a, type: 2}
+  uppercut: {fileID: 11400000, guid: d26371ac2845aaa4d93e7395fc6bc3fb, type: 2}
   walkRightButton: Player2Right
   walkLeftButton: Player2Left
-  evadeButton: 
+  evadeButton: Player2Evade
   punchButton: Player2Punch
-  uppercutButton: 
+  uppercutButton: Player2Uppercut
 --- !u!114 &6644766386722220942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,10 +87,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth:
-    useConstant: 0
-    constantValue: 0
+    useConstant: 1
+    constantValue: 100
     variable: {fileID: 0}
-  currentHealth: 0
+  currentHealth: 100
 --- !u!61 &93338940302313635
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -101,7 +101,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 93338940302313632}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -228,7 +228,7 @@ Animator:
   m_GameObject: {fileID: 93338941388713626}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cb8048b7b44d0f04f8b8dd5a06531c50, type: 2}
+  m_Controller: {fileID: 9100000, guid: d74664b2040c1a44f8af105ec990fd51, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

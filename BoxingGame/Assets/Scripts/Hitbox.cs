@@ -37,7 +37,7 @@ public class Hitbox : MonoBehaviour
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag(GetComponentInParent<PlayerStateMachine>().tag) == false)
+		if (other.CompareTag(GetComponentInParent<PlayerStateMachine>().tag) == false && other.tag != tag)
 			other.BroadcastMessage("GetHit", punch); // send data about what attack just hit the player.
 	}
 }

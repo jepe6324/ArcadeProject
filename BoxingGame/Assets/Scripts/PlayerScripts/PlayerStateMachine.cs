@@ -19,7 +19,7 @@ public class PlayerStateMachine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		currentState = new PlayerIdle(this);
+		currentState = new IntroState(this);
 		currentState.StateEnter();
 
 		spriteRenderer = GetComponentInChildren<SpriteRenderer>();

@@ -90,7 +90,7 @@ Animator:
   m_GameObject: {fileID: 7717913585985134131}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: cb8048b7b44d0f04f8b8dd5a06531c50, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3600f4a75a2fc7e44897d31ecd6f43fa, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -158,21 +158,21 @@ MonoBehaviour:
   evadeDuration:
     useConstant: 0
     constantValue: 0
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: 509386b24c559df46bfa895c12042528, type: 2}
   evadeInvincibilityTime:
     useConstant: 0
     constantValue: 0
-    variable: {fileID: 0}
+    variable: {fileID: 11400000, guid: db8633e6d154ce64ca1321abb9511659, type: 2}
   otherPlayerFSM: {fileID: 0}
   hitboxPrefab: {fileID: 7687397899211539984, guid: 1d32021a3ba4df945bc66f360b6e1e4b,
     type: 3}
-  punch: {fileID: 0}
-  uppercut: {fileID: 0}
+  punch: {fileID: 11400000, guid: 8911924207aea6744956f3ffbe9d208a, type: 2}
+  uppercut: {fileID: 11400000, guid: d26371ac2845aaa4d93e7395fc6bc3fb, type: 2}
   walkRightButton: Player1Right
   walkLeftButton: Player1Left
-  evadeButton: 
+  evadeButton: Player1Evade
   punchButton: Player1Punch
-  uppercutButton: 
+  uppercutButton: Player1Uppercut
 --- !u!114 &136750330110281538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,8 +186,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth:
-    useConstant: 0
-    constantValue: 0
+    useConstant: 1
+    constantValue: 100
     variable: {fileID: 0}
   currentHealth: 100
 --- !u!61 &7717913586416468146
@@ -200,7 +200,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -224,7 +224,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7717913586416468140}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0

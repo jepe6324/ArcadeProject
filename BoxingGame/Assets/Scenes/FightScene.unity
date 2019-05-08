@@ -342,7 +342,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 300, y: -45}
+  m_AnchoredPosition: {x: 240, y: -45}
   m_SizeDelta: {x: 416.95, y: 35.910004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &271502657
@@ -456,6 +456,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356452705}
   m_CullTransparentMesh: 0
+--- !u!1 &595479532
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595479533}
+  - component: {fileID: 595479534}
+  m_Layer: 0
+  m_Name: Referee
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &595479533
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595479532}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &595479534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595479532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e85835ad927f39340a13df90c50bb617, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player1: {fileID: 2136732784}
+  player2: {fileID: 114329413}
+  roundTimerText: {fileID: 1427434879}
 --- !u!1 &940918837
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,7 +537,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -300, y: -45}
+  m_AnchoredPosition: {x: -240, y: -45}
   m_SizeDelta: {x: 416.95, y: 35.910004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &940918839
@@ -752,6 +798,85 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1427434877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1427434878}
+  - component: {fileID: 1427434880}
+  - component: {fileID: 1427434879}
+  m_Layer: 5
+  m_Name: RoundTimer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1427434878
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427434877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1474275357}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -1.96, y: -58.929993}
+  m_SizeDelta: {x: 79.54, y: 92.17}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1427434879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427434877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8b495cc3ae9657c44a4c278288dba42a, type: 3}
+    m_FontSize: 71
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 71
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 99
+--- !u!222 &1427434880
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1427434877}
+  m_CullTransparentMesh: 0
 --- !u!1 &1474275353
 GameObject:
   m_ObjectHideFlags: 0
@@ -801,10 +926,10 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1000, y: 720}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -845,6 +970,7 @@ RectTransform:
   m_Children:
   - {fileID: 940918838}
   - {fileID: 271502656}
+  - {fileID: 1427434878}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -999,40 +1125,6 @@ PrefabInstance:
       propertyPath: otherPlayerFSM
       value: 
       objectReference: {fileID: 2136732784}
-    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: uppercutButton
-      value: Player2Uppercut
-      objectReference: {fileID: 0}
-    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: punch
-      value: 
-      objectReference: {fileID: 11400000, guid: 8911924207aea6744956f3ffbe9d208a,
-        type: 2}
-    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: uppercut
-      value: 
-      objectReference: {fileID: 11400000, guid: d26371ac2845aaa4d93e7395fc6bc3fb,
-        type: 2}
-    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: evadeDuration.variable
-      value: 
-      objectReference: {fileID: 11400000, guid: 509386b24c559df46bfa895c12042528,
-        type: 2}
-    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: evadeInvincibilityTime.variable
-      value: 
-      objectReference: {fileID: 11400000, guid: db8633e6d154ce64ca1321abb9511659,
-        type: 2}
-    - target: {fileID: 93338940302313633, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: evadeButton
-      value: Player2Evade
-      objectReference: {fileID: 0}
     - target: {fileID: 93338940302313634, guid: ff7c0c410f71f254a891c8959ccfeac4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1088,47 +1180,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 93338940302313635, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114329416, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114329416, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114329416, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114329416, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
-      propertyPath: m_Constraints
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 93338941388713572, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d74664b2040c1a44f8af105ec990fd51, type: 2}
-    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: currentHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: maxHealth.useConstant
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: maxHealth.constantValue
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
 --- !u!1001 &7717913584358405315
@@ -1148,40 +1199,6 @@ PrefabInstance:
       propertyPath: otherPlayerFSM
       value: 
       objectReference: {fileID: 114329413}
-    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: uppercutButton
-      value: Player1Uppercut
-      objectReference: {fileID: 0}
-    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: punch
-      value: 
-      objectReference: {fileID: 11400000, guid: 8911924207aea6744956f3ffbe9d208a,
-        type: 2}
-    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: uppercut
-      value: 
-      objectReference: {fileID: 11400000, guid: d26371ac2845aaa4d93e7395fc6bc3fb,
-        type: 2}
-    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: evadeDuration.variable
-      value: 
-      objectReference: {fileID: 11400000, guid: 509386b24c559df46bfa895c12042528,
-        type: 2}
-    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: evadeInvincibilityTime.variable
-      value: 
-      objectReference: {fileID: 11400000, guid: db8633e6d154ce64ca1321abb9511659,
-        type: 2}
-    - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: evadeButton
-      value: Player1Evade
-      objectReference: {fileID: 0}
     - target: {fileID: 7717913586416468145, guid: 57f1d98e8fe6e69479476ba708ff8551,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1236,38 +1253,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7717913586416468146, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2136732785, guid: 57f1d98e8fe6e69479476ba708ff8551, type: 3}
-      propertyPath: m_BodyType
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2136732785, guid: 57f1d98e8fe6e69479476ba708ff8551, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2136732785, guid: 57f1d98e8fe6e69479476ba708ff8551, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7717913585985134129, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 3600f4a75a2fc7e44897d31ecd6f43fa, type: 2}
-    - target: {fileID: 136750330110281538, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: maxHealth.useConstant
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 136750330110281538, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: maxHealth.constantValue
-      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57f1d98e8fe6e69479476ba708ff8551, type: 3}
