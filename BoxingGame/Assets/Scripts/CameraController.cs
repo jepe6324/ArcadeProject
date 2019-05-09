@@ -10,6 +10,8 @@ public class CameraController : MonoBehaviour
 	public float playerXMax;
 	public float playerXMin;
 
+	public FloatReference shakerFactor;
+
 	public Transform player1;
 	public Transform player2;
 
@@ -55,8 +57,8 @@ public class CameraController : MonoBehaviour
 		{
 			shakeDuration -= Time.deltaTime;
 
-			float x = Random.value;
-			float y = Random.value;
+			float x = Random.value * shakerFactor.value;
+			float y = Random.value * shakerFactor.value;
 
 			transform.localPosition = new Vector2(x, y);
 		}

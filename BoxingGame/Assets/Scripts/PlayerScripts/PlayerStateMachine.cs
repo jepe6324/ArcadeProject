@@ -63,7 +63,7 @@ public class PlayerStateMachine : MonoBehaviour
 			currentState.StateExit(new PlayerIdle(this));
 			return;
 		}
-		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && this.punch.punchID != "Uppercut")
+		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && punch.punchID != "Uppercut")
 		{
 			currentState.StateExit(new BlockState(this, this.punch.blockStun, this.punch.knockbackDistance));
 		}

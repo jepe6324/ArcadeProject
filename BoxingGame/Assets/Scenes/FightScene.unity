@@ -207,10 +207,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ba6922c6b5bcc41a29b45b6e385d7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xMax: 8.82
-  xMin: -8.82
+  xMax: 8.4
+  xMin: -8.4
   playerXMax: 8.4
   playerXMin: -8.4
+  shakerFactor:
+    useConstant: 0
+    constantValue: 0
+    variable: {fileID: 11400000, guid: 64b30862fd98cb747a63fcebfec04341, type: 2}
   player1: {fileID: 1417947595}
   player2: {fileID: 965921692}
 --- !u!1 &49845191
@@ -894,7 +898,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -1.96, y: -58.929993}
+  m_AnchoredPosition: {x: -1.96, y: -58.929688}
   m_SizeDelta: {x: 79.54, y: 92.17}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1427434879
