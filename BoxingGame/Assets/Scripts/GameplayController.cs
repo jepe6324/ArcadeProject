@@ -10,13 +10,15 @@ public class GameplayController : MonoBehaviour
 	public PlayerStateMachine player2;
 
 	public Text roundTimerText;
+	public Text playerXWon;
 
 	private Health player1Health;
 	private Health player2Health;
 
 	private float roundTimer;
-
 	private GamemodeStates state;
+	private float timeAcumulator;
+	private string winText;
 
     void Start()
     {
@@ -53,19 +55,30 @@ public class GameplayController : MonoBehaviour
 
 		roundTimerText.text = timeInt.ToString();
 		
-		if (roundTimer <= 0)
+		if (roundTimer < 0)
 		{
-			player1.currentState.StateExit(new OutroState(player1));
-			player2.currentState.StateExit(new OutroState(player2));
-
+			winText = "Time Over";
 			state = GamemodeStates.TIME_OVER;
 			return;
 		}
 
-		if (player1Health.currentHealth <= 0 || player2Health.currentHealth <= 0)
+		if (player1Health.currentHealth <= 0 && player2Health.currentHealth <= 0)
 		{ // Double KO
-			player1.currentState.StateExit(new OutroState(player1));
-			player2.currentState.StateExit(new OutroState(player2));
+			winText = "Double K.O";
+
+			state = GamemodeStates.KO;
+			return;
+		}
+		if (player1Health.currentHealth <= 0)
+		{
+			winText = "Player 2 Wins";
+
+			state = GamemodeStates.KO;
+			return;
+		}
+		if (player2Health.currentHealth <= 0)
+		{
+			winText = "Player 1 Wins";
 
 			state = GamemodeStates.KO;
 			return;
@@ -74,16 +87,54 @@ public class GameplayController : MonoBehaviour
 
 	void KOUpdate()
 	{ // This state will do fancy stuff, like a slowdown with the losing player falling and the winner going through with his punch. Then go to match end.
+		Time.timeScale = 0.5f;
+
+		if (player1.currentState.stateID == "Idle")
+		{
+			player1.currentState.StateExit(new OutroState(player1));
+		}
+		if (player2.currentState.stateID == "Idle")
+		{
+			player2.currentState.StateExit(new OutroState(player2));
+		}
+
 		if (player1.currentState.stateID == "Default" && player2.currentState.stateID == "Default")
 		{
+			Time.timeScale = 1;
 			state = GamemodeStates.MATCH_END;
 		}
 	}
 
 	void RoundOverUpdate()
 	{ // This state has to determine who won. Then go to match end.
+		playerXWon.text = winText;
+
+		if (player1.currentState.stateID == "Idle")
+		{
+			player1.currentState.StateExit(new OutroState(player1));
+		}
+		if (player2.currentState.stateID == "Idle")
+		{
+			player2.currentState.StateExit(new OutroState(player2));
+		}
+
+
+
 		if (player1.currentState.stateID == "Default" && player2.currentState.stateID == "Default")
 		{
+			if (player1Health.currentHealth > player2Health.currentHealth)
+			{
+				winText = "Player 1 Wins";
+			}
+			else if (player1Health.currentHealth < player2Health.currentHealth)
+			{
+				winText = "Player 2 Wins";
+			}
+			else
+			{
+				winText = "Draw Match";
+			}
+
 			state = GamemodeStates.MATCH_END;
 		}
 	}
@@ -91,9 +142,15 @@ public class GameplayController : MonoBehaviour
 	void MatchEndUpdate()
 	{ // This state will make sure to wait for both characters to be done with post match stuff before exiting to character select.
 	  // Such as victory pose, announcing the winner. Fanfare.
-		SceneManager.LoadScene("FightScene");
-	}
+		playerXWon.text = winText;
 
+		timeAcumulator += Time.deltaTime;
+		if (timeAcumulator > 4)
+		{
+			SceneManager.LoadScene("FightScene");
+			timeAcumulator = 0;
+		}
+	}
     // Update is called once per frame
     void Update()
     {

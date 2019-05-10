@@ -58,6 +58,7 @@ public class PlayerStateMachine : MonoBehaviour
 
 	private void GetHit(PunchScriptableObject punch)
 	{
+		spriteRenderer.sortingOrder = 0;
 		if (currentState.stateID == "Evade")
 		{
 			currentState.StateExit(new PlayerIdle(this));
