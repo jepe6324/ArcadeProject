@@ -758,13 +758,13 @@ MonoBehaviour:
   audioFiles:
   - audioName: woosh
     audioClip: {fileID: 8300000, guid: 524503330b020664c8b2dadf8dcb0315, type: 3}
-    volume: 0.883
+    volume: 1
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
   - audioName: punch
     audioClip: {fileID: 8300000, guid: 988653c15b4c75f47a4da8302e87471f, type: 3}
-    volume: 0.779
+    volume: 1
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
@@ -776,10 +776,22 @@ MonoBehaviour:
     playOnAwake: 0
   - audioName: Background Music
     audioClip: {fileID: 8300000, guid: adcda241256420c43a0534d8b529aa72, type: 3}
-    volume: 0.202
+    volume: 0.152
     source: {fileID: 0}
     isLooping: 1
     playOnAwake: 1
+  - audioName: StartBell
+    audioClip: {fileID: 8300000, guid: 96cedd852c892124baa8ff4a8047c1c6, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 1
+  - audioName: Block
+    audioClip: {fileID: 8300000, guid: adc1a66425abf6744ab1550989787c0e, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
 --- !u!1 &1146114034
 GameObject:
   m_ObjectHideFlags: 0
