@@ -26,12 +26,14 @@ public class HitState : PlayerState
 
 	public override void StateExit(PlayerState nextState)
 	{
+		SetToWhite();
 		playerFSM.currentState = nextState;
 		nextState.StateEnter();
 	}
 
 	public override void StateUpdate()
 	{
+		HitFlash();
 		float deltaTime = Time.deltaTime;
 		hitStun -= deltaTime;
 
@@ -48,5 +50,26 @@ public class HitState : PlayerState
 		{
 			StateExit(new PlayerIdle(playerFSM));
 		}
+	}
+
+	public void HitFlash()
+	{
+		SpriteRenderer spriteRenderer = playerFSM.GetComponentInChildren<SpriteRenderer>();
+
+		Color randColor = new Color();
+		randColor.r = 1;
+		randColor.g = Random.value;
+		randColor.b = Random.value;
+		randColor.a = 1;
+
+		if (spriteRenderer.color == Color.white)
+			spriteRenderer.color = randColor;
+		else
+			spriteRenderer.color = Color.white;
+	}
+
+	public void SetToWhite()
+	{
+		playerFSM.GetComponentInChildren<SpriteRenderer>().color = Color.white;
 	}
 }

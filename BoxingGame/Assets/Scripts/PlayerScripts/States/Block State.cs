@@ -21,7 +21,7 @@ public class BlockState : PlayerState
 	{
 		playerAnimator.SetTrigger("Block");
 		knockBackFactor = knockBackDistance / blockStun;
-        AudioManager.PlayMusic("dodge");
+        AudioManager.PlayMusic("Block");
 	}
 
 	public override void StateExit(PlayerState nextState)

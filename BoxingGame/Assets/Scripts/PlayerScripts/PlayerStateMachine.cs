@@ -16,13 +16,16 @@ public class PlayerStateMachine : MonoBehaviour
 	public PlayerStateMachine otherPlayerFSM;
 	private SpriteRenderer spriteRenderer;
 
+	private CameraController cameraController;
+
     // Start is called before the first frame update
     void Start()
     {
-		currentState = new PlayerIdle(this);
+		currentState = new IntroState(this);
 		currentState.StateEnter();
 
 		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+		cameraController = FindObjectOfType<CameraController>();
     }
 
     // Update is called once per frame
@@ -50,22 +53,18 @@ public class PlayerStateMachine : MonoBehaviour
 
 	private float ClampPosition()
 	{
-		float x = transform.position.x;
-		float a = -8.4f;
-		float b = -a;
-
-		// Is x smaller than a? If it is set x to a. Otherwise see if x is bigger than b, if it is set it to b. Otherwise x remains x.
-		return x = (x < a) ? a : ((x > b) ? b : x); 
+		return cameraController.ClampPlayerPosition(transform.position.x);
 	}
 
 	private void GetHit(PunchScriptableObject punch)
 	{
+		spriteRenderer.sortingOrder = 0;
 		if (currentState.stateID == "Evade")
 		{
 			currentState.StateExit(new PlayerIdle(this));
 			return;
 		}
-		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && this.punch.punchID != "Uppercut")
+		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && punch.punchID != "Uppercut")
 		{
 			currentState.StateExit(new BlockState(this, this.punch.blockStun, this.punch.knockbackDistance));
 		}
@@ -73,6 +72,7 @@ public class PlayerStateMachine : MonoBehaviour
 		{
 			currentState.StateExit(new HitState(this, this.punch.hitStun, this.punch.knockbackDistance));
 			BroadcastMessage("ReduceHealth", punch.damage);
+			FindObjectOfType<CameraController>().BroadcastMessage("CameraShaker", 0.2);
 		}
 	}
 
