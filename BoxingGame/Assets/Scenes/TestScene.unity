@@ -456,6 +456,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 356452705}
   m_CullTransparentMesh: 0
+--- !u!1 &540985204
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 540985205}
+  m_Layer: 0
+  m_Name: SpawningPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &540985205
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 540985204}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2847745, y: -2.13, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &940918837
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,6 +899,66 @@ MonoBehaviour:
   player2Content: {fileID: 356452707}
   player1Health: {fileID: 203319653}
   player2Health: {fileID: 1939937837}
+--- !u!1 &1529019624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1529019626}
+  - component: {fileID: 1529019625}
+  - component: {fileID: 1529019627}
+  m_Layer: 0
+  m_Name: SpawnerScript
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1529019625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529019624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa86b216de3b53d40998c612a09c98ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Characters:
+  - {fileID: 7717913586416468140, guid: 57f1d98e8fe6e69479476ba708ff8551, type: 3}
+  - {fileID: 93338940302313632, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
+  playerSpawnPoint: {fileID: 540985205}
+--- !u!4 &1529019626
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529019624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9464216, y: 0.8414918, z: 1.0170681}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1529019627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529019624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7d812cec53e364286ba808d33d2bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1893339938
 GameObject:
   m_ObjectHideFlags: 0
@@ -1033,6 +1123,21 @@ PrefabInstance:
       propertyPath: evadeButton
       value: Player2Evade
       objectReference: {fileID: 0}
+    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: currentHealth
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: maxHealth.useConstant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
+        type: 3}
+      propertyPath: maxHealth.constantValue
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 93338940302313634, guid: ff7c0c410f71f254a891c8959ccfeac4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1114,21 +1219,6 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: d74664b2040c1a44f8af105ec990fd51, type: 2}
-    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: currentHealth
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: maxHealth.useConstant
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6644766386722220942, guid: ff7c0c410f71f254a891c8959ccfeac4,
-        type: 3}
-      propertyPath: maxHealth.constantValue
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff7c0c410f71f254a891c8959ccfeac4, type: 3}
 --- !u!1001 &7717913584358405315
@@ -1142,6 +1232,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136750330110281538, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: maxHealth.useConstant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 136750330110281538, guid: 57f1d98e8fe6e69479476ba708ff8551,
+        type: 3}
+      propertyPath: maxHealth.constantValue
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7717913586416468147, guid: 57f1d98e8fe6e69479476ba708ff8551,
         type: 3}
@@ -1259,15 +1359,5 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 3600f4a75a2fc7e44897d31ecd6f43fa, type: 2}
-    - target: {fileID: 136750330110281538, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: maxHealth.useConstant
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 136750330110281538, guid: 57f1d98e8fe6e69479476ba708ff8551,
-        type: 3}
-      propertyPath: maxHealth.constantValue
-      value: 100
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57f1d98e8fe6e69479476ba708ff8551, type: 3}
