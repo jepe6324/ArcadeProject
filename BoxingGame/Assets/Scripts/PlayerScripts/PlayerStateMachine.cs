@@ -62,6 +62,7 @@ public class PlayerStateMachine : MonoBehaviour
 		if (currentState.stateID == "Evade")
 		{
 			currentState.StateExit(new PlayerIdle(this));
+			AudioManager.PlayMusic("dodge");
 			return;
 		}
 		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && punch.punchID != "Uppercut")
