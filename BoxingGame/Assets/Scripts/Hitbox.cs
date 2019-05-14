@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Hitbox : MonoBehaviour
 {
-	float duration;
+	float activeTime;
+	float whiffTime;
 
 	PunchScriptableObject punch;
 
@@ -20,8 +21,10 @@ public class Hitbox : MonoBehaviour
 		{
 			myCollider.offset = new Vector2(-punch.posX, punch.posY);
 		}
-		this.duration = punch.activeTime;
+		this.activeTime = punch.activeTime;
 		this.punch = punch;
+
+		this.whiffTime = punch.duration - punch.activeTime;
 	}
 
 	void Start()
@@ -30,16 +33,35 @@ public class Hitbox : MonoBehaviour
 
 	void Update()
 	{
-		duration -= Time.deltaTime;
-		if (duration < 0)
+		if (tag == "Whiff")
+		{
+			whiffTime -= Time.deltaTime;
+		}
+		else
+		{
+			activeTime -= Time.deltaTime;
+		}
+
+		if (activeTime < 0)
+			tag = "Whiff";
+		if (whiffTime < 0)
 			Destroy(this.gameObject);
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
 	{
-		if (other.CompareTag(GetComponentInParent<PlayerStateMachine>().tag) == false && other.tag != tag)
-			other.BroadcastMessage("GetHit", punch); // send data about what attack just hit the player.
+		if (tag != "Whiff")
+		{
+			if (other.tag == "Whiff")
+			{
+				other.GetComponentInParent<PlayerStateMachine>().BroadcastMessage("GetHit", punch);
+			}
+			else if (other.CompareTag(GetComponentInParent<PlayerStateMachine>().tag) == false && other.tag != tag)
+			{
+				other.BroadcastMessage("GetHit", punch); // send data about what attack just hit the player.
+			}
 
-		transform.parent.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
+			transform.parent.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
+		}
 	}
 }

@@ -110,7 +110,7 @@ public class PlayerStateMachine : MonoBehaviour
 
 	void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.tag != "Hitbox")
+		if (other.tag != "Hitbox" && other.tag != "Whiff")
 		{
 			PushPlayersApart(other);
 		}
