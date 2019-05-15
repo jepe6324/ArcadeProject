@@ -26,4 +26,9 @@ public class Health : MonoBehaviour
 			// Do loose game sequence
 		}
 	}
+
+	void ResetHealth()
+	{
+		currentHealth = maxHealth.value;
+	}
 }

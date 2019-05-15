@@ -20,6 +20,8 @@ public class GameplayController : MonoBehaviour
 	private float timeAcumulator;
 	private string winText;
 
+	private int roundNumber;
+
     void Start()
     {
 		player1Health = player1.GetComponent<Health>();
@@ -35,6 +37,7 @@ public class GameplayController : MonoBehaviour
 
 		state = GamemodeStates.INTRO;
 		roundTimer = 60;
+		roundNumber = 1;
     }
 
 	void IntroUpdate()
@@ -44,9 +47,14 @@ public class GameplayController : MonoBehaviour
 			player1.currentState.StateExit(new PlayerIdle(player1));
 			player2.currentState.StateExit(new PlayerIdle(player2));
 
-			state = GamemodeStates.FIGHT;
+			state = GamemodeStates.PRE_ROUND;
 		}
 	}
+
+	void PreRoundUpdate()
+	{
+
+	} // TODO: Round X FIGHT
 
 	void FightUpdate()
 	{
@@ -62,28 +70,14 @@ public class GameplayController : MonoBehaviour
 			return;
 		}
 
-		if (player1Health.currentHealth <= 0 && player2Health.currentHealth <= 0)
+		if (player1Health.currentHealth <= 0 || player2Health.currentHealth <= 0)
 		{ // Double KO
 			winText = "Double K.O";
 
 			state = GamemodeStates.KO;
 			return;
 		}
-		if (player1Health.currentHealth <= 0)
-		{
-			winText = "Player 2 Wins";
-
-			state = GamemodeStates.KO;
-			return;
-		}
-		if (player2Health.currentHealth <= 0)
-		{
-			winText = "Player 1 Wins";
-
-			state = GamemodeStates.KO;
-			return;
-		}
-	}
+	} // TODO: This should not have resposibility of determining the winner.
 
 	void KOUpdate()
 	{ // This state will do fancy stuff, like a slowdown with the losing player falling and the winner going through with his punch. Then go to match end.
@@ -101,11 +95,11 @@ public class GameplayController : MonoBehaviour
 		if (player1.currentState.stateID == "Default" && player2.currentState.stateID == "Default")
 		{
 			Time.timeScale = 1;
-			state = GamemodeStates.MATCH_END;
+			state = GamemodeStates.END_ROUND;
 		}
-	}
+	} // TODO: go to EndRoundUpdate instead of Match end
 
-	void RoundOverUpdate()
+	void TimeOverUpdate()
 	{ // This state has to determine who won. Then go to match end.
 		playerXWon.text = winText;
 
@@ -137,7 +131,12 @@ public class GameplayController : MonoBehaviour
 
 			state = GamemodeStates.MATCH_END;
 		}
-	}
+	} // TODO: go to EndRoundUpdate instead of Match end
+
+	void EndRoundUpdate()
+	{
+
+	} // TODO: This should determine who won the round.
 
 	void MatchEndUpdate()
 	{ // This state will make sure to wait for both characters to be done with post match stuff before exiting to character select.
@@ -160,6 +159,10 @@ public class GameplayController : MonoBehaviour
 				IntroUpdate();
 				break;
 
+			case GamemodeStates.PRE_ROUND:
+				PreRoundUpdate();
+				break;
+
 			case GamemodeStates.FIGHT:
 				FightUpdate();
 				break;
@@ -169,7 +172,11 @@ public class GameplayController : MonoBehaviour
 				break;
 
 			case GamemodeStates.TIME_OVER:
-				RoundOverUpdate();
+				TimeOverUpdate();
+				break;
+
+			case GamemodeStates.END_ROUND:
+				EndRoundUpdate();
 				break;
 
 			case GamemodeStates.MATCH_END:
@@ -181,9 +188,11 @@ public class GameplayController : MonoBehaviour
 	enum GamemodeStates
 	{
 		INTRO,
+		PRE_ROUND,
 		FIGHT,
 		KO,
 		TIME_OVER,
+		END_ROUND,
 		MATCH_END,
 	}
 }
