@@ -10,7 +10,9 @@ public class GameplayController : MonoBehaviour
 	public PlayerStateMachine player2;
 
 	public Text roundTimerText;
-	public Text playerXWon;
+	public Text bigTextBox;
+
+	public Canvas canvas;
 
 	private Health player1Health;
 	private Health player2Health;
@@ -18,9 +20,14 @@ public class GameplayController : MonoBehaviour
 	private float roundTimer;
 	private GamemodeStates state;
 	private float timeAcumulator;
-	private string winText;
+	private string bigText;
 
 	private int roundNumber;
+	private int player1Score;
+	private int player2Score;
+
+	private Vector3 player1StartPos;
+	private Vector3 player2StartPos;
 
     void Start()
     {
@@ -35,18 +42,23 @@ public class GameplayController : MonoBehaviour
 			Debug.Log("Could not find Player 2 Health");
 		}
 
+		canvas.sortingOrder = 2;
 		state = GamemodeStates.INTRO;
-		roundTimer = 60;
+		roundTimer = 61;
 		roundNumber = 1;
+		player1Score = 0;
+		player2Score = 0;
+
+		player1StartPos = player1.transform.position;
+		player2StartPos = player2.transform.position;
     }
 
-	void IntroUpdate()
+	void IntroUpdate() // Allows both players to complete their intro sequence before starting the match.
 	{
+		bigText = "Round " + roundNumber;
 		if (player1.currentState.stateID == "Default" && player2.currentState.stateID == "Default")
 		{
-			player1.currentState.StateExit(new PlayerIdle(player1));
-			player2.currentState.StateExit(new PlayerIdle(player2));
-
+			bigTextBox.text = bigText;
 			state = GamemodeStates.PRE_ROUND;
 		}
 	}
@@ -54,94 +66,105 @@ public class GameplayController : MonoBehaviour
 	void PreRoundUpdate()
 	{
 
+		timeAcumulator += Time.deltaTime;
+
+		if (timeAcumulator >= 1)
+		{
+			timeAcumulator = 0;
+			player1.currentState.StateExit(new PlayerIdle(player1));
+			player2.currentState.StateExit(new PlayerIdle(player2));
+
+			bigTextBox.text = "";
+
+			state = GamemodeStates.FIGHT;
+			canvas.sortingOrder = -1;
+		}
 	} // TODO: Round X FIGHT
 
 	void FightUpdate()
 	{
 		roundTimer -= Time.deltaTime;
-		int timeInt = (int) roundTimer + 1 ;
+		int timeInt = (int) roundTimer;
 
 		roundTimerText.text = timeInt.ToString();
 		
 		if (roundTimer < 0)
 		{
-			winText = "Time Over";
+			bigText = "Time Over";
 			state = GamemodeStates.TIME_OVER;
-			return;
 		}
 
 		if (player1Health.currentHealth <= 0 || player2Health.currentHealth <= 0)
 		{ // Double KO
-			winText = "Double K.O";
-
 			state = GamemodeStates.KO;
-			return;
 		}
-	} // TODO: This should not have resposibility of determining the winner.
+
+		canvas.sortingOrder = 2;
+	}
 
 	void KOUpdate()
 	{ // This state will do fancy stuff, like a slowdown with the losing player falling and the winner going through with his punch. Then go to match end.
 		Time.timeScale = 0.5f;
 
-		if (player1.currentState.stateID == "Idle")
+		if (player1.currentState.stateID == "Idle" && player2.currentState.stateID == "Idle")
 		{
-			player1.currentState.StateExit(new OutroState(player1));
-		}
-		if (player2.currentState.stateID == "Idle")
-		{
-			player2.currentState.StateExit(new OutroState(player2));
-		}
+			player1.currentState.StateExit(new DefaultState(player1));
+			player2.currentState.StateExit(new DefaultState(player2));
 
-		if (player1.currentState.stateID == "Default" && player2.currentState.stateID == "Default")
-		{
 			Time.timeScale = 1;
 			state = GamemodeStates.END_ROUND;
 		}
 	} // TODO: go to EndRoundUpdate instead of Match end
 
 	void TimeOverUpdate()
-	{ // This state has to determine who won. Then go to match end.
-		playerXWon.text = winText;
-
-		if (player1.currentState.stateID == "Idle")
+	{ // This state has to determine who won. Then go to match 
+		if (player1.currentState.stateID == "Idle" && player2.currentState.stateID == "Idle")
 		{
-			player1.currentState.StateExit(new OutroState(player1));
-		}
-		if (player2.currentState.stateID == "Idle")
-		{
-			player2.currentState.StateExit(new OutroState(player2));
-		}
+			player1.currentState.StateExit(new DefaultState(player1));
+			player2.currentState.StateExit(new DefaultState(player2));
 
-
-
-		if (player1.currentState.stateID == "Default" && player2.currentState.stateID == "Default")
-		{
-			if (player1Health.currentHealth > player2Health.currentHealth)
-			{
-				winText = "Player 1 Wins";
-			}
-			else if (player1Health.currentHealth < player2Health.currentHealth)
-			{
-				winText = "Player 2 Wins";
-			}
-			else
-			{
-				winText = "Draw Match";
-			}
-
-			state = GamemodeStates.MATCH_END;
+			Time.timeScale = 1;
+			state = GamemodeStates.END_ROUND;
 		}
 	} // TODO: go to EndRoundUpdate instead of Match end
 
 	void EndRoundUpdate()
-	{
+	{ // For now have this just determine a winner, no additional round.
+		if (player1Health.currentHealth == player2Health.currentHealth)
+		{
+			player1Score++;
+			player2Score++;
+			bigText = "Draw Game";
+		}
+		else if (player1Health.currentHealth > player2Health.currentHealth)
+		{
+			player1Score++;
+			bigText = "Player 1 Wins";
+		}
+		else
+		{
+			player2Score++;
+			bigText = "Player 2 Wins";
+		}
+		roundNumber++;
+		if (roundNumber < 4)
+		{
+			Reset();
 
+
+
+			state = GamemodeStates.PRE_ROUND;
+		}
+		else
+		{
+			state = GamemodeStates.MATCH_END;
+		}
 	} // TODO: This should determine who won the round.
 
 	void MatchEndUpdate()
 	{ // This state will make sure to wait for both characters to be done with post match stuff before exiting to character select.
 	  // Such as victory pose, announcing the winner. Fanfare.
-		playerXWon.text = winText;
+		bigTextBox.text = bigText;
 
 		timeAcumulator += Time.deltaTime;
 		if (timeAcumulator > 4)
@@ -183,6 +206,18 @@ public class GameplayController : MonoBehaviour
 				MatchEndUpdate();
 				break;
 		}
+	}
+
+	void Reset()
+	{
+		player1.Reset();
+		player2.Reset();
+		player1.transform.position = player1StartPos;
+		player2.transform.position = player2StartPos;
+		player1Health.currentHealth = player1Health.maxHealth.value;
+		player2Health.currentHealth = player2Health.maxHealth.value;
+
+		roundTimer = 60;
 	}
 
 	enum GamemodeStates

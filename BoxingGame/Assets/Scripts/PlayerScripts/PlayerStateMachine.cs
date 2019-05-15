@@ -117,6 +117,12 @@ public class PlayerStateMachine : MonoBehaviour
 		}
 	}
 
+	public void Reset()
+	{
+		currentState = new IntroState(this);
+		currentState.StateEnter();
+	}
+
 	#region Punches
 	public GameObject hitboxPrefab;
 
