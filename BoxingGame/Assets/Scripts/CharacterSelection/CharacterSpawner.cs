@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
 {
-	public GameObject[] Characters;
-	public Transform playerSpawnPoint;
+	public GameObject character1;
+    public GameObject character2;
+	
     void Start()
     {
-		Instantiate(Characters[CharacterSelect.playerNum], playerSpawnPoint.position, playerSpawnPoint.rotation);
+		if (CharacterSelect.playerNum == 0)
+        {
+            character2.SetActive(true);
+        }
+
+        else if (CharacterSelect.playerNum == 1)
+        {
+            character1.SetActive(true);
+        }
     }
 
 }

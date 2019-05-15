@@ -6,40 +6,38 @@ using UnityEngine.UI;
 
 public class OnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-	//Ray ray;
-	//RaycastHit hit;
-	//Vector3 point;
+	Ray ray;
+	RaycastHit hit;
+	Vector3 point;
 
- //   public GameObject image;
- //   public bool isHovering = false;
+    public GameObject image;
+    public bool isHovering = false;
 
 
     public void OnPointerEnter(PointerEventData eventData)
     {	
-        //isHovering = true;
-        gameObject.SendMessage("IsHovering", true);
+        isHovering = true;
     }
 
 	public void OnPointerExit(PointerEventData eventData)
 	{
-        //isHovering = false;
-        gameObject.SendMessage("IsHovering", false);
+        isHovering = false;
     }
 
     void Update()
     {
-        //point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        //ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+      point = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+       ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        //if (isHovering == true)
-        //{
-        //    image.SetActive(true);
-        //}
+        if (isHovering == true)
+        {
+           image.SetActive(true);
+        }
 
-        //else if (isHovering == false)
-        //{
-        //    image.SetActive(false);
-        //}
+        else if (isHovering == false)
+        {
+           image.SetActive(false);
+        }
 
 
     }
@@ -47,9 +45,9 @@ public class OnHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     void OnDrawGizmos()
 	{
-		//point.z = 0;
-		//Gizmos.color = Color.red;
-		//Gizmos.DrawSphere(point, 0.5f);
-		//Gizmos.DrawSphere(Vector3.zero, 0.5f);
+		point.z = 0;
+		Gizmos.color = Color.red;
+		Gizmos.DrawSphere(point, 0.5f);
+		Gizmos.DrawSphere(Vector3.zero, 0.5f);
 	}
 }
