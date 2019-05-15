@@ -15,7 +15,7 @@ MonoBehaviour:
   duration: 0.5
   startUpTime: 0.1
   punchID: Uppercut
-  damage: 10
+  damage: 15
   knockbackDistance: 0.4
   hitStun: 0.7
   blockStun: 0

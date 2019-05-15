@@ -62,6 +62,7 @@ public class PlayerStateMachine : MonoBehaviour
 		if (currentState.stateID == "Evade")
 		{
 			currentState.StateExit(new PlayerIdle(this));
+			AudioManager.PlayMusic("dodge");
 			return;
 		}
 		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && punch.punchID != "Uppercut")
@@ -110,7 +111,7 @@ public class PlayerStateMachine : MonoBehaviour
 
 	void OnTriggerStay2D(Collider2D other)
 	{
-		if (other.tag != "Hitbox")
+		if (other.tag != "Hitbox" && other.tag != "Whiff")
 		{
 			PushPlayersApart(other);
 		}

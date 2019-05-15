@@ -20,7 +20,6 @@ public class EvadeState : PlayerState
 	override public void StateEnter()
 	{
 		playerAnimator.SetTrigger("Evade");
-        AudioManager.PlayMusic("dodge");
 	}
 
 	override public void StateExit(PlayerState nextState)
