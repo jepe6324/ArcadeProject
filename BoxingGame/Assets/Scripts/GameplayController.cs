@@ -119,7 +119,8 @@ public class GameplayController : MonoBehaviour
 	{ // This state will do fancy stuff, like a slowdown with the losing player falling and the winner going through with his punch. Then go to match end.
 		Time.timeScale = 0.5f;
 
-		if (player1.currentState.stateID == "Idle" && player2.currentState.stateID == "Idle")
+		if ((player1.currentState.stateID == "Idle" || player1.currentState.stateID == "Default") &&
+			(player2.currentState.stateID == "Idle" || player2.currentState.stateID == "Default"))
 		{
 			player1.currentState.StateExit(new DefaultState(player1));
 			player2.currentState.StateExit(new DefaultState(player2));

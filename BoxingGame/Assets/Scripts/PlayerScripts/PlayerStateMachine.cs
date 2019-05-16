@@ -19,6 +19,8 @@ public class PlayerStateMachine : MonoBehaviour
 
 	private CameraController cameraController;
 
+	private Health health;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,7 @@ public class PlayerStateMachine : MonoBehaviour
 
 		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		cameraController = FindObjectOfType<CameraController>();
+		health = GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -72,8 +75,18 @@ public class PlayerStateMachine : MonoBehaviour
 		}
 		else // This is for when the player actually get's hit
 		{
-			currentState.StateExit(new HitState(this, this.punch.hitStun, this.punch.knockbackDistance));
 			BroadcastMessage("ReduceHealth", punch.damage);
+
+			switch(health.currentHealth)
+			{
+				case 0:
+					currentState.StateExit(new KOState(this, punch));
+					break;
+				default:
+					currentState.StateExit(new HitState(this, this.punch.hitStun, this.punch.knockbackDistance));
+					break;
+			}
+
 			FindObjectOfType<CameraController>().BroadcastMessage("CameraShaker", 0.2);
 		}
 	}

@@ -106,9 +106,9 @@ InputManager:
     descriptiveName: Makes Player 1 uppercut
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: e
+    positiveButton: z
     altNegativeButton: 
-    altPositiveButton: 
+    altPositiveButton: e
     gravity: 0
     dead: 0
     sensitivity: 0
