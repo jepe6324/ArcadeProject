@@ -5,8 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player1
-  - Hitbox
   - Player2
+  - Hitbox
   - Whiff
   layers:
   - Default
