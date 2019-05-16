@@ -28,54 +28,57 @@ public class PlayerWalk : PlayerState
 	public override void StateUpdate()
 	{
 		playerFSM.UpdateLookDirection();
-
-		if (Input.GetButtonDown(playerFSM.evadeButton))
+		if (playerFSM.acceptInput == true)
 		{
-			StateExit(new EvadeState(playerFSM));
-		}
-
-		if (Input.GetButtonDown(playerFSM.punchButton))
-		{
-			StateExit(new PlayerPunch(playerFSM, playerFSM.punch));
-			return;
-		}
-		else if (Input.GetButtonDown(playerFSM.uppercutButton))
-		{
-			StateExit(new PlayerPunch(playerFSM, playerFSM.uppercut));
-			return;
-		}
-
-		if (Input.GetButton(playerFSM.walkRightButton) && Input.GetButton(playerFSM.walkLeftButton))
-		{
-			StateExit(new PlayerIdle(playerFSM));
-		}
-		else if (Input.GetButton(playerFSM.walkRightButton))
-		{
-			if (playerFSM.lookDirection == "Right")
+			if (Input.GetButtonDown(playerFSM.evadeButton))
 			{
-				playerFSM.transform.Translate(new Vector2(playerFSM.forwardWalkSpeed.value * Time.deltaTime, 0));
-				stateID = "ForwardWalk";
+				StateExit(new EvadeState(playerFSM));
+				return;
 			}
-			else
+			if (Input.GetButtonDown(playerFSM.punchButton))
 			{
-				playerFSM.transform.Translate(new Vector2(playerFSM.backWalkSpeed.value * Time.deltaTime, 0));
-				stateID = "BackWalk";
+				StateExit(new PlayerPunch(playerFSM, playerFSM.punch));
+				return;
+			}
+			else if (Input.GetButtonDown(playerFSM.uppercutButton))
+			{
+				StateExit(new PlayerPunch(playerFSM, playerFSM.uppercut));
+				return;
+			}
+			if (Input.GetButton(playerFSM.walkRightButton) && Input.GetButton(playerFSM.walkLeftButton))
+			{
+				StateExit(new PlayerIdle(playerFSM));
+				return;
+			}
+			else if (Input.GetButton(playerFSM.walkRightButton))
+			{
+				if (playerFSM.lookDirection == "Right")
+				{
+					playerFSM.transform.Translate(new Vector2(playerFSM.forwardWalkSpeed.value * Time.deltaTime, 0));
+					stateID = "ForwardWalk";
+				}
+				else
+				{
+					playerFSM.transform.Translate(new Vector2(playerFSM.backWalkSpeed.value * Time.deltaTime, 0));
+					stateID = "BackWalk";
+				}
+				return;
+			}
+			else if (Input.GetButton(playerFSM.walkLeftButton))
+			{
+				if (playerFSM.lookDirection == "Left")
+				{
+					playerFSM.transform.Translate(new Vector2(-playerFSM.forwardWalkSpeed.value * Time.deltaTime, 0));
+					stateID = "ForwardWalk";
+				}
+				else
+				{
+					playerFSM.transform.Translate(new Vector2(-playerFSM.backWalkSpeed.value * Time.deltaTime, 0));
+					stateID = "BackWalk";
+				}
+				return;
 			}
 		}
-		else if (Input.GetButton(playerFSM.walkLeftButton))
-		{
-			if (playerFSM.lookDirection == "Left")
-			{
-				playerFSM.transform.Translate(new Vector2(-playerFSM.forwardWalkSpeed.value * Time.deltaTime, 0));
-				stateID = "ForwardWalk";
-			}
-			else
-			{
-				playerFSM.transform.Translate(new Vector2(-playerFSM.backWalkSpeed.value * Time.deltaTime, 0));
-				stateID = "BackWalk";
-			}
-		}
-		else
-			StateExit(new PlayerIdle(playerFSM));
+		StateExit(new PlayerIdle(playerFSM));
 	}
 }

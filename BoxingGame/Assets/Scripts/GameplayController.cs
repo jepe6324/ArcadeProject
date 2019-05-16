@@ -23,8 +23,8 @@ public class GameplayController : MonoBehaviour
 	private string bigText;
 
 	private int roundNumber;
-	private int player1Score;
-	private int player2Score;
+	[HideInInspector] public int player1Score;
+	[HideInInspector] public int player2Score;
 
 	private Vector3 player1StartPos;
 	private Vector3 player2StartPos;
@@ -51,6 +51,9 @@ public class GameplayController : MonoBehaviour
 
 		player1StartPos = player1.transform.position;
 		player2StartPos = player2.transform.position;
+
+		player1.acceptInput = false;
+		player2.acceptInput = false;
     }
 
 	void IntroUpdate() // Allows both players to complete their intro sequence before starting the match.
@@ -65,16 +68,22 @@ public class GameplayController : MonoBehaviour
 
 	void PreRoundUpdate()
 	{
+		bigText = "Round " + roundNumber;
 
+		bigTextBox.text = bigText;
 		timeAcumulator += Time.deltaTime;
 
 		if (timeAcumulator >= 1)
 		{
+			bigTextBox.text= "";
 			timeAcumulator = 0;
 			player1.currentState.StateExit(new PlayerIdle(player1));
 			player2.currentState.StateExit(new PlayerIdle(player2));
 
 			bigTextBox.text = "";
+
+			player1.acceptInput = true;
+			player2.acceptInput = true;
 
 			state = GamemodeStates.FIGHT;
 			canvas.sortingOrder = -1;
@@ -92,11 +101,15 @@ public class GameplayController : MonoBehaviour
 		{
 			bigText = "Time Over";
 			state = GamemodeStates.TIME_OVER;
+			player1.acceptInput = false;
+			player2.acceptInput = false;
 		}
 
 		if (player1Health.currentHealth <= 0 || player2Health.currentHealth <= 0)
 		{ // Double KO
 			state = GamemodeStates.KO;
+			player1.acceptInput = false;
+			player2.acceptInput = false;
 		}
 
 		canvas.sortingOrder = 2;
@@ -129,25 +142,18 @@ public class GameplayController : MonoBehaviour
 	} // TODO: go to EndRoundUpdate instead of Match end
 
 	void EndRoundUpdate()
-	{ // For now have this just determine a winner, no additional round.
-		if (player1Health.currentHealth == player2Health.currentHealth)
-		{
+	{
+		if (player1Health.currentHealth == player2Health.currentHealth) {
 			player1Score++;
 			player2Score++;
-			bigText = "Draw Game";
-		}
-		else if (player1Health.currentHealth > player2Health.currentHealth)
-		{
+		} else if (player1Health.currentHealth > player2Health.currentHealth) {
 			player1Score++;
-			bigText = "Player 1 Wins";
-		}
-		else
-		{
+		} else {
 			player2Score++;
-			bigText = "Player 2 Wins";
 		}
 		roundNumber++;
-		if (roundNumber < 4)
+
+		if (player1Score < 2 && player2Score < 2)
 		{
 			Reset();
 
@@ -164,6 +170,14 @@ public class GameplayController : MonoBehaviour
 	void MatchEndUpdate()
 	{ // This state will make sure to wait for both characters to be done with post match stuff before exiting to character select.
 	  // Such as victory pose, announcing the winner. Fanfare.
+		if (player1Score > player2Score) {
+			bigText = "Player 1 Wins";
+		} else if (player2Score > player1Score) {
+			bigText = "Player 2 Wins";
+		} else {
+			bigText = "Draw Game";
+		}
+
 		bigTextBox.text = bigText;
 
 		timeAcumulator += Time.deltaTime;

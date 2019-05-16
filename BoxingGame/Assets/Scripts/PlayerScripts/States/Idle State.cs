@@ -27,27 +27,30 @@ public class PlayerIdle : PlayerState
 	{
 		playerFSM.UpdateLookDirection();
 
-		if (Input.GetButton(playerFSM.walkRightButton) && Input.GetButton(playerFSM.walkLeftButton))
+		if (playerFSM.acceptInput == true)
 		{
+			if (Input.GetButton(playerFSM.walkRightButton) && Input.GetButton(playerFSM.walkLeftButton))
+			{
 
-		}
-		else if (Input.GetButton(playerFSM.walkRightButton) || Input.GetButton(playerFSM.walkLeftButton))
-		{
-			StateExit(new PlayerWalk(playerFSM));
-		}
-		else if (Input.GetButtonDown(playerFSM.evadeButton))
-		{
-			StateExit(new EvadeState(playerFSM));
-		}
-		else if (Input.GetButtonDown(playerFSM.punchButton))
-		{
-			StateExit(new PlayerPunch(playerFSM, playerFSM.punch));
-			return;
-		}
-		else if (Input.GetButtonDown(playerFSM.uppercutButton))
-		{
-			StateExit(new PlayerPunch(playerFSM, playerFSM.uppercut));
-			return;
+			}
+			else if (Input.GetButton(playerFSM.walkRightButton) || Input.GetButton(playerFSM.walkLeftButton))
+			{
+				StateExit(new PlayerWalk(playerFSM));
+			}
+			else if (Input.GetButtonDown(playerFSM.evadeButton))
+			{
+				StateExit(new EvadeState(playerFSM));
+			}
+			else if (Input.GetButtonDown(playerFSM.punchButton))
+			{
+				StateExit(new PlayerPunch(playerFSM, playerFSM.punch));
+				return;
+			}
+			else if (Input.GetButtonDown(playerFSM.uppercutButton))
+			{
+				StateExit(new PlayerPunch(playerFSM, playerFSM.uppercut));
+				return;
+			}
 		}
 	}
 }

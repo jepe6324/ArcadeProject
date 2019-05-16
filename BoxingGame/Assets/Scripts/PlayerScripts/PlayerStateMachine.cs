@@ -6,6 +6,7 @@ public class PlayerStateMachine : MonoBehaviour
 {
 	[HideInInspector] public PlayerState currentState;
 	[HideInInspector] public string lookDirection;
+	[HideInInspector] public bool acceptInput;
 
 	public FloatReference forwardWalkSpeed;
 	public FloatReference backWalkSpeed;

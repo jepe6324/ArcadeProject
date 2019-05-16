@@ -14,9 +14,18 @@ public class UIController : MonoBehaviour
 	public Health player1Health;
 	public Health player2Health;
 
+	public Image player1Marker1;
+	public Image player1Marker2;
+	public Image player2Marker1;
+	public Image player2Marker2;
+
+
+	private GameplayController referee;
+
 	// Start is called before the first frame update
 	void Start()
     {
+		referee = FindObjectOfType<GameplayController>();
     }
 
     // Update is called once per frame
@@ -27,6 +36,38 @@ public class UIController : MonoBehaviour
 
 		HandleBar(player1Content, player1FillAmount);
 		HandleBar(player2Content, player2FillAmount);
+
+
+		switch (referee.player1Score)
+		{
+			case 0:
+				player1Marker1.color = Color.black;
+				player1Marker2.color = Color.black;
+				break;
+			case 1:
+				player1Marker1.color = Color.white;
+				player1Marker2.color = Color.black;
+				break;
+			case 2:
+				player1Marker1.color = Color.white;
+				player1Marker2.color = Color.white;
+				break;
+		}
+		switch (referee.player2Score)
+		{
+			case 0:
+				player2Marker1.color = Color.black;
+				player2Marker2.color = Color.black;
+				break;
+			case 1:
+				player2Marker1.color = Color.white;
+				player2Marker2.color = Color.black;
+				break;
+			case 2:
+				player2Marker1.color = Color.white;
+				player2Marker2.color = Color.white;
+				break;
+		}
 	}
 
 	private void HandleBar(Image content, float fillAmount)
