@@ -186,6 +186,122 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112078385}
   m_CullTransparentMesh: 0
+--- !u!1 &365086454
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 365086456}
+  - component: {fileID: 365086455}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &365086455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365086454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c650ec822cb50304e9c4c6111c09b254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioFiles:
+  - audioName: woosh
+    audioClip: {fileID: 8300000, guid: 524503330b020664c8b2dadf8dcb0315, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: punch
+    audioClip: {fileID: 8300000, guid: 988653c15b4c75f47a4da8302e87471f, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: dodge
+    audioClip: {fileID: 8300000, guid: 6a38b93cb69c4c340abfa75a980ca60e, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: Background Music
+    audioClip: {fileID: 8300000, guid: adcda241256420c43a0534d8b529aa72, type: 3}
+    volume: 0.152
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: StartBell
+    audioClip: {fileID: 8300000, guid: 96cedd852c892124baa8ff4a8047c1c6, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: Block
+    audioClip: {fileID: 8300000, guid: adc1a66425abf6744ab1550989787c0e, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: playerOneWon
+    audioClip: {fileID: 8300000, guid: a1249bdc379525849ab8d8a5230b4a27, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: playerTwoWon
+    audioClip: {fileID: 8300000, guid: 9d1c48dd3c41b474d9a6b527e513006f, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: roundStart
+    audioClip: {fileID: 8300000, guid: a0b87c19eee8a264d8eb45da0c2641da, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: Draw
+    audioClip: {fileID: 8300000, guid: d2d6a2d0f3e65794b9be7caa3e635a2f, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: KO
+    audioClip: {fileID: 8300000, guid: beff3c26c61e14d4f9c0ce4dc4f6303e, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: CHSM
+    audioClip: {fileID: 8300000, guid: 73e93f29751d14a489d2b4bfe7b87784, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+--- !u!4 &365086456
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 365086454}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &524944958
 GameObject:
   m_ObjectHideFlags: 0

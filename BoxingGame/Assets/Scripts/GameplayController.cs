@@ -59,23 +59,26 @@ public class GameplayController : MonoBehaviour
 	void IntroUpdate() // Allows both players to complete their intro sequence before starting the match.
 	{
 		bigText = "Round " + roundNumber;
-		if (player1.currentState.stateID == "Default" && player2.currentState.stateID == "Default")
+        
+        if (player1.currentState.stateID == "Default" && player2.currentState.stateID == "Default")
 		{
 			bigTextBox.text = bigText;
 			state = GamemodeStates.PRE_ROUND;
-		}
-	}
+            
+        }
+    }
 
 	void PreRoundUpdate()
 	{
 		bigText = "Round " + roundNumber;
-
-		bigTextBox.text = bigText;
+        
+        bigTextBox.text = bigText;
 		timeAcumulator += Time.deltaTime;
 
 		if (timeAcumulator >= 1)
 		{
-			bigTextBox.text= "";
+            AudioManager.PlayMusic("roundStart");
+            bigTextBox.text= "";
 			timeAcumulator = 0;
 			player1.currentState.StateExit(new PlayerIdle(player1));
 			player2.currentState.StateExit(new PlayerIdle(player2));
@@ -107,7 +110,8 @@ public class GameplayController : MonoBehaviour
 
 		if (player1Health.currentHealth <= 0 || player2Health.currentHealth <= 0)
 		{ // Double KO
-			state = GamemodeStates.KO;
+            AudioManager.PlayMusic("KO");
+            state = GamemodeStates.KO;
 			player1.acceptInput = false;
 			player2.acceptInput = false;
 		}
@@ -147,25 +151,42 @@ public class GameplayController : MonoBehaviour
 		if (player1Health.currentHealth == player2Health.currentHealth) {
 			player1Score++;
 			player2Score++;
+            AudioManager.PlayMusic("Draw");
 		} else if (player1Health.currentHealth > player2Health.currentHealth) {
 			player1Score++;
-		} else {
+        } else {
 			player2Score++;
-		}
+        }
 		roundNumber++;
 
-		if (player1Score < 2 && player2Score < 2)
-		{
-			Reset();
+        if (player1Score < 2 && player2Score < 2)
+        {
+            Reset();
 
 
-
-			state = GamemodeStates.PRE_ROUND;
-		}
-		else
-		{
-			state = GamemodeStates.MATCH_END;
-		}
+            state = GamemodeStates.PRE_ROUND;
+        }
+        else if (player1Score == 2 )
+        {
+            AudioManager.PlayMusic("playerOneWon");
+            state = GamemodeStates.MATCH_END;
+        }
+        else if (player2Score == 2)
+        {
+            AudioManager.PlayMusic("playerTwoWon");
+            state = GamemodeStates.MATCH_END;
+        }
+        else if (player1Score == 2 && player2Score == 2)
+        {
+            AudioManager.PlayMusic("Draw");
+            state = GamemodeStates.MATCH_END;
+        }
+        else
+        {
+            
+            state = GamemodeStates.MATCH_END;
+            
+        }
 	} // TODO: This should determine who won the round.
 
 	void MatchEndUpdate()
@@ -173,9 +194,11 @@ public class GameplayController : MonoBehaviour
 	  // Such as victory pose, announcing the winner. Fanfare.
 		if (player1Score > player2Score) {
 			bigText = "Player 1 Wins";
-		} else if (player2Score > player1Score) {
+            
+        } else if (player2Score > player1Score) {
 			bigText = "Player 2 Wins";
-		} else {
+            
+        } else {
 			bigText = "Draw Game";
 		}
 
@@ -186,7 +209,8 @@ public class GameplayController : MonoBehaviour
 		{
 			SceneManager.LoadScene("FightScene");
 			timeAcumulator = 0;
-		}
+            
+        }
 	}
     // Update is called once per frame
     void Update()

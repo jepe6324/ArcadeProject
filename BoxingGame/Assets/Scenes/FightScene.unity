@@ -899,9 +899,39 @@ MonoBehaviour:
     volume: 1
     source: {fileID: 0}
     isLooping: 0
-    playOnAwake: 1
+    playOnAwake: 0
   - audioName: Block
     audioClip: {fileID: 8300000, guid: adc1a66425abf6744ab1550989787c0e, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: playerOneWon
+    audioClip: {fileID: 8300000, guid: a1249bdc379525849ab8d8a5230b4a27, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: playerTwoWon
+    audioClip: {fileID: 8300000, guid: 9d1c48dd3c41b474d9a6b527e513006f, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: roundStart
+    audioClip: {fileID: 8300000, guid: a0b87c19eee8a264d8eb45da0c2641da, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: Draw
+    audioClip: {fileID: 8300000, guid: d2d6a2d0f3e65794b9be7caa3e635a2f, type: 3}
+    volume: 1
+    source: {fileID: 0}
+    isLooping: 0
+    playOnAwake: 0
+  - audioName: KO
+    audioClip: {fileID: 8300000, guid: beff3c26c61e14d4f9c0ce4dc4f6303e, type: 3}
     volume: 1
     source: {fileID: 0}
     isLooping: 0
