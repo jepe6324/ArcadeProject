@@ -13,6 +13,7 @@ public class PlayerStateMachine : MonoBehaviour
 
 	public FloatReference evadeDuration;
 	public FloatReference evadeInvincibilityTime;
+	public FloatReference evadeSwayBack;
 
 	public PlayerStateMachine otherPlayerFSM;
 	private SpriteRenderer spriteRenderer;
@@ -65,7 +66,7 @@ public class PlayerStateMachine : MonoBehaviour
 		spriteRenderer.sortingOrder = 0;
 		if (currentState.stateID == "Evade")
 		{
-			currentState.StateExit(new PlayerIdle(this));
+			currentState.StateExit(new SwayBackState(this));
 			AudioManager.PlayMusic("dodge");
 			return;
 		}

@@ -463,7 +463,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: fabf2ee33dfa1cb41be9d29ae6928ddb, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
@@ -1914,6 +1914,12 @@ PrefabInstance:
       propertyPath: otherPlayerFSM
       value: 
       objectReference: {fileID: 114329413}
+    - target: {fileID: 3566894346960750257, guid: cb018827f882b4a4b8b55868564ff37b,
+        type: 3}
+      propertyPath: evadeSwayBack.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: a6140f3c5afbe5b42b5dfe3aa34c5d71,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb018827f882b4a4b8b55868564ff37b, type: 3}
 --- !u!1001 &4621551790059739234
@@ -1938,6 +1944,12 @@ PrefabInstance:
       propertyPath: otherPlayerFSM
       value: 
       objectReference: {fileID: 2136732784}
+    - target: {fileID: 4621551790020910887, guid: 5fae513590c269140a86b3ece510da73,
+        type: 3}
+      propertyPath: evadeSwayBack.variable
+      value: 
+      objectReference: {fileID: 11400000, guid: a6140f3c5afbe5b42b5dfe3aa34c5d71,
+        type: 2}
     - target: {fileID: 4621551790020910884, guid: 5fae513590c269140a86b3ece510da73,
         type: 3}
       propertyPath: m_LocalPosition.x
