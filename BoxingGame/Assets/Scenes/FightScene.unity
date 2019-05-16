@@ -1291,7 +1291,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1933,6 +1933,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4621551790020910887, guid: 5fae513590c269140a86b3ece510da73,
+        type: 3}
+      propertyPath: otherPlayerFSM
+      value: 
+      objectReference: {fileID: 2136732784}
     - target: {fileID: 4621551790020910884, guid: 5fae513590c269140a86b3ece510da73,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1988,11 +1993,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4621551790020910887, guid: 5fae513590c269140a86b3ece510da73,
-        type: 3}
-      propertyPath: otherPlayerFSM
-      value: 
-      objectReference: {fileID: 2136732784}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae513590c269140a86b3ece510da73, type: 3}
 --- !u!1 &7717913584358405316 stripped
