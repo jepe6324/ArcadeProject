@@ -385,6 +385,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02244ab6902a22848a513defbd086515, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PunchButtons:
+  - Player1Punch
+  - Player1Uppercut
+  - Player2Punch
+  - Player1Uppercut
+  nextScene: FightScene
 --- !u!4 &1449625786
 Transform:
   m_ObjectHideFlags: 0

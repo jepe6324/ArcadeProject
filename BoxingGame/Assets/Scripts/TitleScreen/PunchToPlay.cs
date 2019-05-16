@@ -1,11 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class PunchToPlay : MonoBehaviour
 {
-    // Start is called before the first frame update
+	public string[] PunchButtons;
+	public string nextScene;
+    
+	// Start is called before the first frame update
     void Start()
     {
         
@@ -14,12 +17,12 @@ public class PunchToPlay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("Player1Punch") ||
-			Input.GetButton("Player1Uppercut") ||
-			Input.GetButton("Player2Punch") ||
-			Input.GetButton("Player2Uppercut"))
+		foreach(string element in PunchButtons)
 		{
-			SceneManager.LoadScene("FightScene"); // TODO: Change this to character select.
+			if (Input.GetButton(element))
+			{
+				SceneManager.LoadScene(nextScene);
+			}
 		}
     }
 }
