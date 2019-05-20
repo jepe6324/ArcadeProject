@@ -20,7 +20,7 @@ MonoBehaviour:
   hitStun: 0.5
   blockStun: 0.2
   activeTime: 0.1
-  sizeX: 1.57
-  sizeY: 0.7
-  posX: 0.99
-  posY: 1.05
+  sizeX: 2.6
+  sizeY: 1.05
+  posX: 1.5
+  posY: 1.57

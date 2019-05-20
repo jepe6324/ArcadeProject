@@ -78,16 +78,14 @@ public class PlayerStateMachine : MonoBehaviour
 		{
 			BroadcastMessage("ReduceHealth", punch.damage);
 
-			switch(health.currentHealth)
+			if (health.currentHealth <= 0)
 			{
-				case 0:
-					currentState.StateExit(new KOState(this, punch));
-					break;
-				default:
-					currentState.StateExit(new HitState(this, this.punch.hitStun, this.punch.knockbackDistance));
-					break;
+				currentState.StateExit(new KOState(this, punch));
 			}
-
+			else
+			{
+				currentState.StateExit(new HitState(this, this.punch.hitStun, this.punch.knockbackDistance));
+			}
 			FindObjectOfType<CameraController>().BroadcastMessage("CameraShaker", 0.2);
 		}
 	}

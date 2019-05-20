@@ -29,18 +29,10 @@ public class PlayerIdle : PlayerState
 
 		if (playerFSM.acceptInput == true)
 		{
-			if (Input.GetButton(playerFSM.walkRightButton) && Input.GetButton(playerFSM.walkLeftButton))
-			{
-
-			}
-			else if (Input.GetButton(playerFSM.walkRightButton) || Input.GetButton(playerFSM.walkLeftButton))
-			{
-				StateExit(new PlayerWalk(playerFSM));
-			}
-
 			if (Input.GetButtonDown(playerFSM.evadeButton))
 			{
 				StateExit(new EvadeState(playerFSM));
+				return;
 			}
 			else if (Input.GetButtonDown(playerFSM.punchButton))
 			{
@@ -50,6 +42,16 @@ public class PlayerIdle : PlayerState
 			else if (Input.GetButtonDown(playerFSM.uppercutButton))
 			{
 				StateExit(new PlayerPunch(playerFSM, playerFSM.uppercut));
+				return;
+			}
+
+			if (Input.GetButton(playerFSM.walkRightButton) && Input.GetButton(playerFSM.walkLeftButton))
+			{
+
+			}
+			else if (Input.GetButton(playerFSM.walkRightButton) || Input.GetButton(playerFSM.walkLeftButton))
+			{
+				StateExit(new PlayerWalk(playerFSM));
 				return;
 			}
 		}

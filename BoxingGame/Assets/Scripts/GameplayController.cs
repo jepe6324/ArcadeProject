@@ -106,17 +106,16 @@ public class GameplayController : MonoBehaviour
 			state = GamemodeStates.TIME_OVER;
 			player1.acceptInput = false;
 			player2.acceptInput = false;
+			canvas.sortingOrder = 2;
 		}
-
 		if (player1Health.currentHealth <= 0 || player2Health.currentHealth <= 0)
 		{ // Double KO
             AudioManager.PlayMusic("KO");
             state = GamemodeStates.KO;
 			player1.acceptInput = false;
 			player2.acceptInput = false;
+			canvas.sortingOrder = 2;
 		}
-
-		canvas.sortingOrder = 2;
 	}
 
 	void KOUpdate()
@@ -165,22 +164,24 @@ public class GameplayController : MonoBehaviour
 
 
             state = GamemodeStates.PRE_ROUND;
-        }
-        else if (player1Score == 2 )
+		}
+		else if (player1Score == 2 && player2Score == 2)
+		{
+			AudioManager.PlayMusic("Draw");
+			state = GamemodeStates.MATCH_END;
+		}
+		else if (player1Score == 2 )
         {
             AudioManager.PlayMusic("playerOneWon");
             state = GamemodeStates.MATCH_END;
-        }
+			player1.currentState.StateExit(new WinState(player1));
+		}
         else if (player2Score == 2)
         {
             AudioManager.PlayMusic("playerTwoWon");
             state = GamemodeStates.MATCH_END;
-        }
-        else if (player1Score == 2 && player2Score == 2)
-        {
-            AudioManager.PlayMusic("Draw");
-            state = GamemodeStates.MATCH_END;
-        }
+			player2.currentState.StateExit(new WinState(player2));
+		}
         else
         {
             
