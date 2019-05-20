@@ -37,7 +37,8 @@ public class PlayerIdle : PlayerState
 			{
 				StateExit(new PlayerWalk(playerFSM));
 			}
-			else if (Input.GetButtonDown(playerFSM.evadeButton))
+
+			if (Input.GetButtonDown(playerFSM.evadeButton))
 			{
 				StateExit(new EvadeState(playerFSM));
 			}
