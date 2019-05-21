@@ -8,13 +8,29 @@ public class HitState : PlayerState
 	float knockBackDistance;
 	float knockBackFactor;
 
-    public HitState(PlayerStateMachine stateMachine, float hitStun, float knockBackDistance)
+	float currentTime;
+	float startPos;
+	float endPos;
+
+	public HitState(PlayerStateMachine stateMachine, float hitStun, float knockBackDistance)
 	{
 		stateID = "Hit";
 		playerFSM = stateMachine;
 		playerAnimator = stateMachine.GetComponentInChildren<Animator>();
 		this.hitStun = hitStun;
 		this.knockBackDistance = knockBackDistance;
+
+		currentTime = 0;
+		startPos = playerFSM.transform.position.x;
+
+		if (playerFSM.lookDirection == "Right")
+		{
+			endPos = -this.knockBackDistance;
+		}
+		else
+		{
+			endPos = this.knockBackDistance;
+		}
 	}
 
 	public override void StateEnter()
@@ -35,18 +51,22 @@ public class HitState : PlayerState
 	{
 		HitFlash();
 		float deltaTime = Time.deltaTime;
-		hitStun -= deltaTime;
+		currentTime += deltaTime;
 
-		if (playerFSM.lookDirection == "Right")
-		{
-			playerFSM.transform.Translate(new Vector2(-knockBackFactor * deltaTime, 0)); // It would look cool to apply some form om easing to this.
-		}
-		else
-		{
-			playerFSM.transform.Translate(new Vector2(knockBackFactor * deltaTime, 0));
-		}
+		float easingReturn = Easing(currentTime, startPos, endPos, hitStun);
 
-		if (hitStun <= 0)
+		playerFSM.transform.position = new Vector2(easingReturn, playerFSM.transform.position.y);
+
+		//if (playerFSM.lookDirection == "Right")
+		//{
+		//	playerFSM.transform.Translate(new Vector2(-knockBackFactor * deltaTime, 0)); // It would look cool to apply some form om easing to this.
+		//}
+		//else
+		//{
+		//	playerFSM.transform.Translate(new Vector2(knockBackFactor * deltaTime, 0));
+		//}
+
+		if (currentTime >= hitStun)
 		{
 			StateExit(new PlayerIdle(playerFSM));
 		}
@@ -71,5 +91,15 @@ public class HitState : PlayerState
 	public void SetToWhite()
 	{
 		playerFSM.GetComponentInChildren<SpriteRenderer>().color = Color.white;
+	}
+
+
+	// SOURCE: https://github.com/jesusgollonet/ofpennereasing/blob/master/PennerEasing
+	float Easing(float currentTime, float startPos, float totalDistance, float endTime)
+	{
+		//if ((currentTime /= endTime / 2) < 1) return -totalDistance / 2 * (Mathf.Sqrt(1 - currentTime * currentTime) - 1) + startPos;
+		//return totalDistance / 2 * (Mathf.Sqrt(1 - currentTime * (currentTime -= 2)) + 1) + startPos;
+		//return totalDistance * ((currentTime = currentTime / endTime - 1) * currentTime * currentTime * currentTime * currentTime + 1) + startPos;
+		return totalDistance * Mathf.Sqrt(1 - (currentTime = currentTime / endTime - 1) * currentTime) + startPos;
 	}
 }

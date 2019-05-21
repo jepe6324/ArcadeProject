@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
 public class GameplayController : MonoBehaviour
@@ -13,6 +14,9 @@ public class GameplayController : MonoBehaviour
 	public Text bigTextBox;
 
 	public Canvas canvas;
+
+	public VideoPlayer videoPlayer;
+	public VideoClip[] clips;
 
 	private Health player1Health;
 	private Health player2Health;
@@ -58,13 +62,14 @@ public class GameplayController : MonoBehaviour
 
 	void IntroUpdate() // Allows both players to complete their intro sequence before starting the match.
 	{
+		videoPlayer.clip = clips[roundNumber - 1];
 		bigText = "Round " + roundNumber;
         
         if (player1.currentState.stateID == "Default" && player2.currentState.stateID == "Default")
 		{
 			bigTextBox.text = bigText;
 			state = GamemodeStates.PRE_ROUND;
-            
+			videoPlayer.Play();
         }
     }
 
@@ -130,6 +135,7 @@ public class GameplayController : MonoBehaviour
 
 			Time.timeScale = 1;
 			state = GamemodeStates.END_ROUND;
+			videoPlayer.Pause();
 		}
 	} // TODO: go to EndRoundUpdate instead of Match end
 
@@ -142,6 +148,7 @@ public class GameplayController : MonoBehaviour
 
 			Time.timeScale = 1;
 			state = GamemodeStates.END_ROUND;
+			videoPlayer.Pause();
 		}
 	} // TODO: go to EndRoundUpdate instead of Match end
 
@@ -156,14 +163,16 @@ public class GameplayController : MonoBehaviour
         } else {
 			player2Score++;
         }
-		roundNumber++;
 
-        if (player1Score < 2 && player2Score < 2)
-        {
-            Reset();
+		if (player1Score < 2 && player2Score < 2)
+		{
+			roundNumber++;
+			Reset();
 
+			videoPlayer.clip = clips[roundNumber - 1];
+			videoPlayer.Play();
 
-            state = GamemodeStates.PRE_ROUND;
+			state = GamemodeStates.PRE_ROUND;
 		}
 		else if (player1Score == 2 && player2Score == 2)
 		{
