@@ -29,7 +29,7 @@ public class PlayerPunch : PlayerState
 	{
 		donePunch = false;
 		playerAnimator.SetTrigger(punchID);
-        AudioManager.PlayMusic("woosh");
+        AudioManager.PlayMusic("Woosh");
     }
 
 	override public void StateExit(PlayerState nextState)

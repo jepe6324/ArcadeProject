@@ -15,6 +15,7 @@ public class SwayBackState : PlayerState
 	public override void StateEnter()
 	{
 		swaybackTime = playerFSM.evadeSwayBack.value;
+		AudioManager.PlayMusic(playerFSM.characterName + "Dodge");
 	}
 
 	public override void StateExit(PlayerState nextState)

@@ -67,7 +67,6 @@ public class PlayerStateMachine : MonoBehaviour
 		if (currentState.stateID == "Evade")
 		{
 			currentState.StateExit(new SwayBackState(this));
-			AudioManager.PlayMusic("dodge");
 			return;
 		}
 		if ((currentState.stateID == "BackWalk" || currentState.stateID == "Block") && punch.punchID != "Uppercut")
@@ -136,6 +135,25 @@ public class PlayerStateMachine : MonoBehaviour
 		currentState.StateEnter();
 	}
 
+	public void SetCharacter(string characterName)
+	{
+		this.characterName = characterName;
+
+		switch (characterName)
+		{
+			case "Angelov":
+				break;
+			case "DreadGirl":
+				break;
+			case "Viking":
+				break;
+			case "Bewbs":
+				break;
+			default:
+				break;
+		}
+	}
+
 	#region Punches
 	public GameObject hitboxPrefab;
 
@@ -150,4 +168,12 @@ public class PlayerStateMachine : MonoBehaviour
 	public string punchButton;
 	public string uppercutButton;
 	#endregion //Input
+
+	#region Character
+	public string characterName;
+	//public GameObject angelov;
+	//public GameObject dreadGirl;
+	//public GameObject viking;
+	//public GameObject bewbs;
+	#endregion //Character
 }

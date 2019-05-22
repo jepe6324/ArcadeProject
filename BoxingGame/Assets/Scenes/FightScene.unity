@@ -904,19 +904,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioFiles:
-  - audioName: woosh
+  - audioName: Woosh
     audioClip: {fileID: 8300000, guid: 524503330b020664c8b2dadf8dcb0315, type: 3}
     volume: 1
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
-  - audioName: punch
+  - audioName: Punch
     audioClip: {fileID: 8300000, guid: 988653c15b4c75f47a4da8302e87471f, type: 3}
     volume: 1
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
-  - audioName: dodge
+  - audioName: Dodge
     audioClip: {fileID: 8300000, guid: 5e53d0c6a8f6ecc4f861ef114f8c78c6, type: 3}
     volume: 1
     source: {fileID: 0}
@@ -940,19 +940,19 @@ MonoBehaviour:
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
-  - audioName: playerOneWon
+  - audioName: PlayerOneWon
     audioClip: {fileID: 8300000, guid: a1249bdc379525849ab8d8a5230b4a27, type: 3}
     volume: 1
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
-  - audioName: playerTwoWon
+  - audioName: PlayerTwoWon
     audioClip: {fileID: 8300000, guid: 9d1c48dd3c41b474d9a6b527e513006f, type: 3}
     volume: 1
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
-  - audioName: roundStart
+  - audioName: RoundStart
     audioClip: {fileID: 8300000, guid: a0b87c19eee8a264d8eb45da0c2641da, type: 3}
     volume: 1
     source: {fileID: 0}

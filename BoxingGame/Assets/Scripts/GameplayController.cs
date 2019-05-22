@@ -82,7 +82,7 @@ public class GameplayController : MonoBehaviour
 
 		if (timeAcumulator >= 1)
 		{
-            AudioManager.PlayMusic("roundStart");
+            AudioManager.PlayMusic("RoundStart");
             bigTextBox.text= "";
 			timeAcumulator = 0;
 			player1.currentState.StateExit(new PlayerIdle(player1));
@@ -181,13 +181,13 @@ public class GameplayController : MonoBehaviour
 		}
 		else if (player1Score == 2 )
         {
-            AudioManager.PlayMusic("playerOneWon");
+            AudioManager.PlayMusic("PlayerOneWon");
             state = GamemodeStates.MATCH_END;
 			player1.currentState.StateExit(new WinState(player1));
 		}
         else if (player2Score == 2)
         {
-            AudioManager.PlayMusic("playerTwoWon");
+            AudioManager.PlayMusic("PlayerTwoWon");
             state = GamemodeStates.MATCH_END;
 			player2.currentState.StateExit(new WinState(player2));
 		}
