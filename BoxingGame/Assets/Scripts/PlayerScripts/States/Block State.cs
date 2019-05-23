@@ -53,8 +53,15 @@ public class BlockState : PlayerState
 
 		if (currentTime >= blockStun)
 		{
-			StateExit(new PlayerIdle(playerFSM));
-			return;
+			if (Input.GetButton(playerFSM.blockButton))
+			{
+				StateExit(new ManualBlockState(playerFSM));
+			}
+			else
+			{
+				StateExit(new PlayerIdle(playerFSM));
+				return;
+			}
 		}
 
 		float easingReturn = Easing(currentTime, startPos, endPos, blockStun);

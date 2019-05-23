@@ -29,6 +29,12 @@ public class PlayerIdle : PlayerState
 
 		if (playerFSM.acceptInput == true)
 		{
+			if (Input.GetButton(playerFSM.blockButton))
+			{
+				StateExit(new ManualBlockState(playerFSM));
+				return;
+			}
+
 			if (Input.GetButtonDown(playerFSM.evadeButton))
 			{
 				StateExit(new EvadeState(playerFSM));

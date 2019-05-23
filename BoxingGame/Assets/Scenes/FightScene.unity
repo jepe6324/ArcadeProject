@@ -578,7 +578,7 @@ MonoBehaviour:
   clips:
   - {fileID: 32900000, guid: ee102b65cb40e424ba79fd71960ec0d5, type: 3}
   - {fileID: 32900000, guid: 0b2a3a8c35489b04ca027fbde70149c1, type: 3}
-  - {fileID: 0}
+  - {fileID: 32900000, guid: 0b2a3a8c35489b04ca027fbde70149c1, type: 3}
   player1Score: 0
   player2Score: 0
 --- !u!1 &597557845
@@ -2028,6 +2028,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a6140f3c5afbe5b42b5dfe3aa34c5d71,
         type: 2}
+    - target: {fileID: 3566894346960750257, guid: cb018827f882b4a4b8b55868564ff37b,
+        type: 3}
+      propertyPath: blockButton
+      value: Player1Block
+      objectReference: {fileID: 0}
     - target: {fileID: 3566894346960750256, guid: cb018827f882b4a4b8b55868564ff37b,
         type: 3}
       propertyPath: m_Size.x
@@ -2044,6 +2049,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 2a56ed40bcaabd94583813e36f13f0e4,
         type: 3}
+    - target: {fileID: 3566894347326330931, guid: cb018827f882b4a4b8b55868564ff37b,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 18a512995bc10ec46b2da08dfb6226e6, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb018827f882b4a4b8b55868564ff37b, type: 3}
 --- !u!1001 &4621551790059739234
@@ -2074,6 +2084,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: a6140f3c5afbe5b42b5dfe3aa34c5d71,
         type: 2}
+    - target: {fileID: 4621551790020910887, guid: 5fae513590c269140a86b3ece510da73,
+        type: 3}
+      propertyPath: blockButton
+      value: Player2Block
+      objectReference: {fileID: 0}
     - target: {fileID: 4621551790020910884, guid: 5fae513590c269140a86b3ece510da73,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2150,6 +2165,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4621551788926269922, guid: 5fae513590c269140a86b3ece510da73,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 60841d5916c0fa845a6d7701b77915a4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5fae513590c269140a86b3ece510da73, type: 3}
 --- !u!1 &7717913584358405316 stripped

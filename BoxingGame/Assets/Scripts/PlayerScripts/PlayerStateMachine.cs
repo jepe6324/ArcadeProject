@@ -167,6 +167,7 @@ public class PlayerStateMachine : MonoBehaviour
 	public string evadeButton;
 	public string punchButton;
 	public string uppercutButton;
+	public string blockButton;
 	#endregion //Input
 
 	#region Character
