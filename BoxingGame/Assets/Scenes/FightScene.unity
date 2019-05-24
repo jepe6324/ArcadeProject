@@ -924,7 +924,7 @@ MonoBehaviour:
     playOnAwake: 0
   - audioName: Background Music
     audioClip: {fileID: 8300000, guid: 3d1b264ce63e32f42a4f7c2c6e91c6dc, type: 3}
-    volume: 0
+    volume: 0.17
     source: {fileID: 0}
     isLooping: 1
     playOnAwake: 1
