@@ -18,6 +18,8 @@ public class GameplayController : MonoBehaviour
 	public VideoPlayer videoPlayer;
 	public VideoClip[] clips;
 
+	public SpriteRenderer bigBlackBox;
+
 	private Health player1Health;
 	private Health player2Health;
 
@@ -25,6 +27,7 @@ public class GameplayController : MonoBehaviour
 	private GamemodeStates state;
 	private float timeAcumulator;
 	private string bigText;
+	private bool waiting;
 
 	private int roundNumber;
 	[HideInInspector] public int player1Score;
@@ -58,23 +61,31 @@ public class GameplayController : MonoBehaviour
 
 		player1.acceptInput = false;
 		player2.acceptInput = false;
-    }
+
+		bigBlackBox.color = Color.black;
+		videoPlayer.Play();
+
+		waiting = false;
+	}
 
 	void IntroUpdate() // Allows both players to complete their intro sequence before starting the match.
 	{
 		videoPlayer.clip = clips[roundNumber - 1];
 		bigText = "Round " + roundNumber;
-        
-        if (player1.currentState.stateID == "Default" && player2.currentState.stateID == "Default")
+
+		timeAcumulator += Time.deltaTime;
+		if ((player1.currentState.stateID == "Default" && player2.currentState.stateID == "Default") && timeAcumulator > 1)
 		{
 			bigTextBox.text = bigText;
 			state = GamemodeStates.PRE_ROUND;
-			videoPlayer.Play();
+			timeAcumulator = 0;
         }
     }
 
 	void PreRoundUpdate()
 	{
+		bigBlackBox.color = new Color(1,1,1,0);
+
 		bigText = "Round " + roundNumber;
         
         bigTextBox.text = bigText;
@@ -154,6 +165,17 @@ public class GameplayController : MonoBehaviour
 
 	void EndRoundUpdate()
 	{
+		if (waiting)
+		{
+			timeAcumulator += Time.deltaTime;
+			if (timeAcumulator > 0.5)
+			{
+				waiting = false;
+				state = GamemodeStates.PRE_ROUND;
+			}
+			return;
+		}
+
 		if (player1Health.currentHealth == player2Health.currentHealth) {
 			player1Score++;
 			player2Score++;
@@ -172,7 +194,8 @@ public class GameplayController : MonoBehaviour
 			videoPlayer.clip = clips[roundNumber - 1];
 			videoPlayer.Play();
 
-			state = GamemodeStates.PRE_ROUND;
+			bigBlackBox.color = Color.black;
+			waiting = true;
 		}
 		else if (player1Score == 2 && player2Score == 2)
 		{
