@@ -10,7 +10,7 @@ public class KOState : PlayerState
 		stateID = "KO";
 		playerFSM = stateMachine;
 		playerAnimator = stateMachine.GetComponentInChildren<Animator>();
-		knockBack = punch.knockbackDistance;
+		knockBack = punch.knockbackDistance * 2;
 	}
 
 	public override void StateEnter()
@@ -42,7 +42,6 @@ public class KOState : PlayerState
 		{
 			knockBack = 0;
 		}
-
 		if (playerAnimator.GetBool("KO") == false)
 		{
 			StateExit(new DefaultState(playerFSM));

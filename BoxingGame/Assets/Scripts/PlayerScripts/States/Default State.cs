@@ -13,7 +13,6 @@ public class DefaultState : PlayerState
 
 	public override void StateEnter()
 	{
-		playerAnimator.SetTrigger("Idle");
 	}
 
 	public override void StateExit(PlayerState nextState)

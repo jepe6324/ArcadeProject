@@ -137,17 +137,15 @@ public class PlayerStateMachine : MonoBehaviour
 
 	public void SetCharacter(string characterName)
 	{
-		this.characterName = characterName;
-
 		switch (characterName)
 		{
 			case "Angelov":
 				break;
-			case "DreadGirl":
+			case "Ragnar":
 				break;
-			case "Viking":
+			case "Pixel":
 				break;
-			case "Bewbs":
+			case "Ikkx":
 				break;
 			default:
 				break;

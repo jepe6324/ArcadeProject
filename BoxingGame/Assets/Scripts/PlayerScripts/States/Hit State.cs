@@ -37,7 +37,7 @@ public class HitState : PlayerState
 	{
 		playerAnimator.SetTrigger("Hit");
 		knockBackFactor = knockBackDistance / hitStun;
-        AudioManager.PlayMusic(playerFSM.characterName + "Punch");
+        AudioManager.PlayMusic("Punch");
 	}
 
 	public override void StateExit(PlayerState nextState)
@@ -78,8 +78,8 @@ public class HitState : PlayerState
 
 		Color randColor = new Color();
 		randColor.r = 1;
-		randColor.g = Random.value;
-		randColor.b = Random.value;
+		randColor.g = Random.Range(0, 0.5f);
+		randColor.b = Random.Range(0, 0.5f);
 		randColor.a = 1;
 
 		if (spriteRenderer.color == Color.white)

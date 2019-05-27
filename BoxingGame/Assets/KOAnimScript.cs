@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class KOAnimScript : StateMachineBehaviour
 {
+	float timeCounter;
 	// OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
-	//override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-	//{
-	//    
-	//}
+	override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+	{
+		timeCounter = 0;
+	}
 
 	//OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
 	override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
 	{
+		timeCounter += Time.deltaTime;
+		if (timeCounter >= stateInfo.length)
+		{
+			animator.SetBool("KO", false);
+		}
 	}
 
 	// OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-	override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-	{
-		animator.SetBool("KO", false);
-	}
+	//override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+	//{
+	//	animator.SetBool("KO", false);
+	//}
 
 	// OnStateMove is called right after Animator.OnAnimatorMove()
 	//override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

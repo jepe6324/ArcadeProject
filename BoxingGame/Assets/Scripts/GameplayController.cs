@@ -18,7 +18,7 @@ public class GameplayController : MonoBehaviour
 	public VideoPlayer videoPlayer;
 	public VideoClip[] clips;
 
-	public SpriteRenderer bigBlackBox;
+	public Image bigBlackBox;
 
 	private Health player1Health;
 	private Health player2Health;
@@ -194,6 +194,9 @@ public class GameplayController : MonoBehaviour
 			videoPlayer.clip = clips[roundNumber - 1];
 			videoPlayer.Play();
 
+			player1.currentState.StateExit(new PlayerIdle(player1));
+			player2.currentState.StateExit(new PlayerIdle(player2));
+
 			bigBlackBox.color = Color.black;
 			waiting = true;
 		}
@@ -207,6 +210,10 @@ public class GameplayController : MonoBehaviour
             AudioManager.PlayMusic("PlayerOneWon");
             state = GamemodeStates.MATCH_END;
 			player1.currentState.StateExit(new WinState(player1));
+			if (player2Health.currentHealth > 0)
+			{
+				//player2.currentState.StateExit(new TimeOutState(player2));
+			}
 		}
         else if (player2Score == 2)
         {

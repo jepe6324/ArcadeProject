@@ -59,9 +59,9 @@ public class Hitbox : MonoBehaviour
 			else if (other.CompareTag(GetComponentInParent<PlayerStateMachine>().tag) == false && other.tag != tag)
 			{
 				other.BroadcastMessage("GetHit", punch); // send data about what attack just hit the player.
+				transform.parent.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
 			}
 
-			transform.parent.GetComponentInChildren<SpriteRenderer>().sortingOrder = 1;
 		}
 	}
 }
