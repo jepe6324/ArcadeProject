@@ -23,7 +23,6 @@ public class GameplayController : MonoBehaviour
 	private Health player1Health;
 	private Health player2Health;
 
-	private float roundTimer;
 	private GamemodeStates state;
 	private float timeAcumulator;
 	private string bigText;
@@ -32,6 +31,8 @@ public class GameplayController : MonoBehaviour
 	private int roundNumber;
 	[HideInInspector] public int player1Score;
 	[HideInInspector] public int player2Score;
+
+	private float roundTimer;
 
 	private Vector3 player1StartPos;
 	private Vector3 player2StartPos;
@@ -51,13 +52,14 @@ public class GameplayController : MonoBehaviour
 
 		canvas.sortingOrder = 2;
 		state = GamemodeStates.INTRO;
-		roundTimer = 61;
 		roundNumber = 1;
 		player1Score = 0;
 		player2Score = 0;
 
 		player1StartPos = player1.transform.position;
 		player2StartPos = player2.transform.position;
+
+		roundTimer = 61;
 
 		player1.acceptInput = false;
 		player2.acceptInput = false;
@@ -118,14 +120,26 @@ public class GameplayController : MonoBehaviour
 		
 		if (roundTimer < 0)
 		{
+			timeAcumulator = 0;
 			bigText = "Time Over";
 			state = GamemodeStates.TIME_OVER;
 			player1.acceptInput = false;
 			player2.acceptInput = false;
 			canvas.sortingOrder = 2;
+
+			if (player2Health.currentHealth > 0)
+			{
+				player2.currentState.StateExit(new TimeOutState(player2));
+			}
+			if (player1Health.currentHealth > 0)
+			{
+				player1.currentState.StateExit(new TimeOutState(player1));
+			}
 		}
 		if (player1Health.currentHealth <= 0 || player2Health.currentHealth <= 0)
-		{ // Double KO
+		{
+			timeAcumulator = 0;
+
             AudioManager.PlayMusic("KO");
             state = GamemodeStates.KO;
 			player1.acceptInput = false;
@@ -151,11 +165,14 @@ public class GameplayController : MonoBehaviour
 	} // TODO: go to EndRoundUpdate instead of Match end
 
 	void TimeOverUpdate()
-	{ // This state has to determine who won. Then go to match 
-		if (player1.currentState.stateID == "Idle" && player2.currentState.stateID == "Idle")
+	{
+		timeAcumulator += Time.deltaTime;
+		if (timeAcumulator > 3)
 		{
 			player1.currentState.StateExit(new DefaultState(player1));
 			player2.currentState.StateExit(new DefaultState(player2));
+
+			timeAcumulator = 0;
 
 			Time.timeScale = 1;
 			state = GamemodeStates.END_ROUND;
@@ -204,22 +221,27 @@ public class GameplayController : MonoBehaviour
 		{
 			AudioManager.PlayMusic("Draw");
 			state = GamemodeStates.MATCH_END;
+			if (player2Health.currentHealth > 0)
+			{
+				player1.currentState.StateExit(new TimeOutState(player2));
+				player2.currentState.StateExit(new TimeOutState(player2));
+			}
 		}
 		else if (player1Score == 2 )
         {
             AudioManager.PlayMusic("PlayerOneWon");
             state = GamemodeStates.MATCH_END;
 			player1.currentState.StateExit(new WinState(player1));
-			if (player2Health.currentHealth > 0)
-			{
-				//player2.currentState.StateExit(new TimeOutState(player2));
-			}
 		}
         else if (player2Score == 2)
         {
             AudioManager.PlayMusic("PlayerTwoWon");
             state = GamemodeStates.MATCH_END;
 			player2.currentState.StateExit(new WinState(player2));
+			if (player1Health.currentHealth > 0)
+			{
+				player1.currentState.StateExit(new TimeOutState(player1));
+			}
 		}
         else
         {
