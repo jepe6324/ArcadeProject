@@ -6,9 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/FightScene.unity
-    guid: 4a9ff6af5a3e6974281b52cfd4ecca1e
+    path: Assets/Scenes/SplashImageIntro.unity
+    guid: 83e1b8e662c5bad45bf8016b923f9d6f
+  - enabled: 1
+    path: Assets/Scenes/TitleScene.unity
+    guid: da8f148788e69b64eb31122bb222e6cc
   - enabled: 1
     path: Assets/Scenes/CharacterSelect.unity
     guid: 1abf72e9260e7c64e8498c71880aea5f
+  - enabled: 1
+    path: Assets/Scenes/FightScene.unity
+    guid: 4a9ff6af5a3e6974281b52cfd4ecca1e
   m_configObjects: {}
