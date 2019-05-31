@@ -25,6 +25,8 @@ public class UIController : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
+        AudioManager.StopMusic("80Music");
+       // AudioManager.PlayMusic("Background Music");
 		referee = FindObjectOfType<GameplayController>();
     }
 
