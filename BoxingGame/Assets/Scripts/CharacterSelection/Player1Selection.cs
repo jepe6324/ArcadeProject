@@ -60,21 +60,25 @@ public class Player1Selection : MonoBehaviour
         if (index == 0 && playerSelected == true)
         {
             character1String = "Ikkx";
-        }
+			CharacterSelector.player1Character = character1String;
+		}
 
         else if (index == 1 && playerSelected == true)
         {
             character1String = "Angelov";
-        }
+			CharacterSelector.player1Character = character1String;
+		}
 
         else if (index == 2 && playerSelected == true)
         {
             character1String = "Pixel";
-        }
+			CharacterSelector.player1Character = character1String;
+		}
 
         else if (index == 3 && playerSelected == true)
         {
             character1String = "Ragnar";
-        }
+			CharacterSelector.player1Character = character1String;
+		}
     }
 }

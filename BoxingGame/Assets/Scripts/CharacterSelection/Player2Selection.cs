@@ -62,22 +62,26 @@ public class Player2Selection : MonoBehaviour
         if (index == 0 && player2Selected == true)
         {
             character2String = "Ikkx";
-        }
+			CharacterSelector.player2Character = character2String;
+		}
 
         else if (index == 1 && player2Selected == true)
         {
             character2String = "Angelov";
-        }
+			CharacterSelector.player2Character = character2String;
+		}
 
         else if (index == 2 && player2Selected == true)
         {
             character2String = "Pixel";
-        }
+			CharacterSelector.player2Character = character2String;
+		}
 
         else if (index == 3 && player2Selected == true)
         {
             character2String = "Ragnar";
-        }
+			CharacterSelector.player2Character = character2String;
+		}
 
         player1Selection = transform.GetComponent<Player1Selection>();
 

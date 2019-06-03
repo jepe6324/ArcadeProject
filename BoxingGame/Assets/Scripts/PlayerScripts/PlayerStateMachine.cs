@@ -27,11 +27,11 @@ public class PlayerStateMachine : MonoBehaviour
 	{
 		if (name == "Player 1")
 		{
-			SetCharacter("Ragnar"/*CharacterSelector.player1Character*/);
+			SetCharacter(CharacterSelector.player1Character);
 		}
 		else
 		{
-			SetCharacter("Ikkx"/*CharacterSelector.player2Character*/);
+			SetCharacter(CharacterSelector.player2Character);
 		}
 		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
