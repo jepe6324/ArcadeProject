@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Player1Selection : MonoBehaviour
 {
     public GameObject buttonImage;
-    private int index;
+   [HideInInspector] public int index;
     public int characterIndex;
     private int maxIndex = 3;
     public bool playerSelected = false;
