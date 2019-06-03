@@ -27,11 +27,26 @@ public class PlayerStateMachine : MonoBehaviour
 	{
 		if (name == "Player 1")
 		{
-			SetCharacter(CharacterSelector.player1Character);
+			Debug.Log(CharacterSelector.player1Character);
+			if (CharacterSelector.player1Character != null)
+			{
+				SetCharacter(CharacterSelector.player1Character);
+			}
+			else
+			{
+				SetCharacter("Angelov");
+			}
 		}
 		else
 		{
-			SetCharacter(CharacterSelector.player2Character);
+			if (CharacterSelector.player2Character != null)
+			{
+				SetCharacter(CharacterSelector.player2Character);
+			}
+			else
+			{
+				SetCharacter("Pixel");
+			}
 		}
 		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 

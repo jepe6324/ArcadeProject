@@ -304,8 +304,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xMax: 7.984
   xMin: -7.984
-  playerXMax: 10
-  playerXMin: -10
+  playerXMax: 8
+  playerXMin: -8
   shakerFactor:
     useConstant: 0
     constantValue: 0
