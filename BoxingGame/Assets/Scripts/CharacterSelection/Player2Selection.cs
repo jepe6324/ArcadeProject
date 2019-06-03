@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player2Selection : MonoBehaviour
 {
@@ -22,12 +23,12 @@ public class Player2Selection : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(left))
+        if (Input.GetKeyDown(left) && player2Selected == false)
         {
             index++;
         }
 
-        if (Input.GetKeyDown(right))
+        if (Input.GetKeyDown(right) && player2Selected == false)
         {
             index--;
         }
@@ -57,6 +58,7 @@ public class Player2Selection : MonoBehaviour
         if (Input.GetKey(selectionKey))
         {
             player2Selected = true;
+            buttonImage.GetComponent<Image>().color = Selected;
         }
 
         if (index == 0 && player2Selected == true)
@@ -90,5 +92,15 @@ public class Player2Selection : MonoBehaviour
             SceneManager.LoadScene("FightScene");
             bothSelected = true;
         }
+    }
+
+    Color Selected;
+
+    private void Start()
+    {
+        Selected.r = 1;
+        Selected.g = 1;
+        Selected.b = 1;
+        Selected.a = 0.5f;
     }
 }
