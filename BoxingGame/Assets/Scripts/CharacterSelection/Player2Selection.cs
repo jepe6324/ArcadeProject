@@ -16,6 +16,7 @@ public class Player2Selection : MonoBehaviour
     public string selectionKey;
     public bool bothSelected = false;
     Player1Selection player1Selection;
+    [HideInInspector] public string character2String;
 
 
 
@@ -56,6 +57,26 @@ public class Player2Selection : MonoBehaviour
         if (Input.GetKey(selectionKey))
         {
             player2Selected = true;
+        }
+
+        if (index == 0 && player2Selected == true)
+        {
+            character2String = "Ikkx";
+        }
+
+        else if (index == 1 && player2Selected == true)
+        {
+            character2String = "Angelov";
+        }
+
+        else if (index == 2 && player2Selected == true)
+        {
+            character2String = "Pixel";
+        }
+
+        else if (index == 3 && player2Selected == true)
+        {
+            character2String = "Ragnar";
         }
 
         player1Selection = transform.GetComponent<Player1Selection>();
