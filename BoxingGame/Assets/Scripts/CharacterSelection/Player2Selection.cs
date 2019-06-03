@@ -14,6 +14,7 @@ public class Player2Selection : MonoBehaviour
     public string left;
     public string right;
     public string selectionKey;
+    public bool bothSelected = false;
     Player1Selection player1Selection;
 
 
@@ -62,6 +63,7 @@ public class Player2Selection : MonoBehaviour
         if (player1Selection.playerSelected == true && player2Selected == true)
         {
             SceneManager.LoadScene("FightScene");
+            bothSelected = true;
         }
     }
 }
