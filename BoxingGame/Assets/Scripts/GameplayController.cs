@@ -42,6 +42,7 @@ public class GameplayController : MonoBehaviour
 
     void Start()
     {
+		AudioManager.PlayMusic("Background Music");
 		player1Health = player1.GetComponent<Health>();
 		if (player1Health == null)
 		{
@@ -259,6 +260,8 @@ public class GameplayController : MonoBehaviour
 	void MatchEndUpdate()
 	{ // This state will make sure to wait for both characters to be done with post match stuff before exiting to character select.
 	  // Such as victory pose, announcing the winner. Fanfare.
+
+		AudioManager.StopMusic("Background Music");
 		if (player1Score > player2Score) {
 			bigText = "Player 1 Wins";
             
@@ -274,7 +277,8 @@ public class GameplayController : MonoBehaviour
 		timeAcumulator += Time.deltaTime;
 		if (timeAcumulator > 4)
 		{
-			SceneManager.LoadScene("FightScene");
+			AudioManager.PlayMusic("Title Music");
+			SceneManager.LoadScene("CharacterSelect");
 			timeAcumulator = 0;
             
         }

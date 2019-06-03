@@ -11,7 +11,7 @@ public class PunchToPlay : MonoBehaviour
 	// Start is called before the first frame update
     void Start()
     {
-        
+		AudioManager.PlayMusic("Title Music");
     }
 
     // Update is called once per frame
@@ -21,6 +21,7 @@ public class PunchToPlay : MonoBehaviour
 		{
 			if (Input.GetButton(element))
 			{
+				AudioManager.PlayMusic("Punch");
 				SceneManager.LoadScene(nextScene);
 			}
 		}

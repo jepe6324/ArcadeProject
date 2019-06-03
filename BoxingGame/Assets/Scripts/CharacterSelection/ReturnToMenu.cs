@@ -9,7 +9,9 @@ public class ReturnToMenu : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			SceneManager.LoadScene ("CharacterSelect");
+			AudioManager.StopMusic("Background Music");
+			AudioManager.PlayMusic("Title Music");
+			SceneManager.LoadScene("TitleScene");
 		}
 	}
 }
