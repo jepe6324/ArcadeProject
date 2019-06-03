@@ -565,8 +565,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1123028795212777745, guid: a3288621d2b695741bd5c100e26953bc,
         type: 3}
-      propertyPath: audioFiles.Array.data[12].volume
-      value: 0.34
+      propertyPath: audioFiles.Array.data[12].isLooping
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3288621d2b695741bd5c100e26953bc, type: 3}
