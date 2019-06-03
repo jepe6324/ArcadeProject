@@ -89,6 +89,7 @@ public class Player2Selection : MonoBehaviour
 
         if (player1Selection.playerSelected == true && player2Selected == true)
         {
+			AudioManager.StopMusic("Title Music");
             SceneManager.LoadScene("FightScene");
             bothSelected = true;
         }
