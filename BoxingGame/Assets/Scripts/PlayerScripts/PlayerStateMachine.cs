@@ -26,9 +26,13 @@ public class PlayerStateMachine : MonoBehaviour
     void Start()
 	{
 		if (name == "Player 1")
-			SetCharacter("Angelov");
+		{
+			SetCharacter("Ragnar"/*CharacterSelector.player1Character*/);
+		}
 		else
-			SetCharacter("Ikkx");
+		{
+			SetCharacter("Ikkx"/*CharacterSelector.player2Character*/);
+		}
 		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
 		currentState = new IntroState(this);

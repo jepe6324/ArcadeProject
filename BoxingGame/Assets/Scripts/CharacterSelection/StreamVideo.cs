@@ -10,34 +10,34 @@ public class StreamVideo : MonoBehaviour
     public VideoPlayer videoPlayer;
     Player2Selection player2Selection;
 
-    void Start()
-    {
-        StartCoroutine(PlayVideo());
-    }
+    //void Start()
+    //{
+    //    StartCoroutine(PlayVideo());
+    //}
 
-    IEnumerator PlayVideo()
-    {
-        videoPlayer.Prepare();
-        WaitForSeconds waitForSeconds = new WaitForSeconds(1);
+    //IEnumerator PlayVideo()
+    //{
+    //    videoPlayer.Prepare();
+    //    WaitForSeconds waitForSeconds = new WaitForSeconds(1);
 
-        while (!videoPlayer.isPrepared)
-        {
-            yield return waitForSeconds;
-            break;
-        }
+    //    while (!videoPlayer.isPrepared)
+    //    {
+    //        yield return waitForSeconds;
+    //        break;
+    //    }
 
-        rawImage.texture = videoPlayer.texture;
-        videoPlayer.Play();
-    }
+    //    rawImage.texture = videoPlayer.texture;
+    //    videoPlayer.Play();
+    //}
 
-    void Update()
-    {
-        player2Selection = transform.GetComponent<Player2Selection>();
+    //void Update()
+    //{
+    //    player2Selection = transform.GetComponent<Player2Selection>();
 
-        while(player2Selection.bothSelected != true)
-        {
-            StartCoroutine(PlayVideo());
-        }
-    }
+    //    while(player2Selection.bothSelected != true)
+    //    {
+    //        StartCoroutine(PlayVideo());
+    //    }
+    //}
 
 }
