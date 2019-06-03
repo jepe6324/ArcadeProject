@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player1Selection : MonoBehaviour
 {
@@ -20,12 +21,12 @@ public class Player1Selection : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(left))
+        if (Input.GetKeyDown(left) && playerSelected == false)
         {
             index++;
         }
 
-        if (Input.GetKeyDown(right))
+        if (Input.GetKeyDown(right) && playerSelected == false)
         {
             index--;
         }
@@ -55,6 +56,7 @@ public class Player1Selection : MonoBehaviour
         if (Input.GetKey(selectionKey))
         {
             playerSelected = true;
+            buttonImage.GetComponent<Image>().color = Selected;
         }
 
         if (index == 0 && playerSelected == true)
@@ -80,5 +82,15 @@ public class Player1Selection : MonoBehaviour
             character1String = "Ragnar";
 			CharacterSelector.player1Character = character1String;
 		}
+    }
+
+    Color Selected;
+
+    private void Start()
+    {
+        Selected.r = 1;
+        Selected.g = 1;
+        Selected.b = 1;
+        Selected.a = 0.5f;
     }
 }
