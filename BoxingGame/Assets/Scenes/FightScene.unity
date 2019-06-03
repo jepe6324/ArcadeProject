@@ -1094,8 +1094,8 @@ MonoBehaviour:
     isLooping: 0
     playOnAwake: 0
   - audioName: Dodge
-    audioClip: {fileID: 8300000, guid: 5e53d0c6a8f6ecc4f861ef114f8c78c6, type: 3}
-    volume: 1
+    audioClip: {fileID: 8300000, guid: e7b5ff64d052f6240a3cfc44abe4c35b, type: 3}
+    volume: 0.797
     source: {fileID: 0}
     isLooping: 0
     playOnAwake: 0
