@@ -24,11 +24,16 @@ public class PlayerStateMachine : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+	{
+		if (name == "Player 1")
+			SetCharacter("Angelov");
+		else
+			SetCharacter("Ikkx");
+		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
 		currentState = new IntroState(this);
 		currentState.StateEnter();
 
-		spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 		cameraController = FindObjectOfType<CameraController>();
 		health = GetComponent<Health>();
     }
@@ -137,18 +142,31 @@ public class PlayerStateMachine : MonoBehaviour
 
 	public void SetCharacter(string characterName)
 	{
+		this.characterName = characterName;
 		switch (characterName)
 		{
 			case "Angelov":
+				characterGender = "Male";
+				Instantiate(angelov, this.transform, false);
 				break;
 			case "Ragnar":
+				characterGender = "Male";
+				Instantiate(ragnar, this.transform, false);
 				break;
 			case "Pixel":
+				characterGender = "Female";
+				Instantiate(pixel, this.transform, false);
 				break;
 			case "Ikkx":
+				characterGender = "Female";
+				Instantiate(ikkx, this.transform, false);
 				break;
 			default:
 				break;
+		}
+		if (name == "Player 2")
+		{
+			GetComponentInChildren<SpriteRenderer>().flipX = true;
 		}
 	}
 
@@ -169,10 +187,12 @@ public class PlayerStateMachine : MonoBehaviour
 	#endregion //Input
 
 	#region Character
-	public string characterName;
-	//public GameObject angelov;
-	//public GameObject dreadGirl;
-	//public GameObject viking;
-	//public GameObject bewbs;
+	[HideInInspector] public string characterName;
+	[HideInInspector] public string characterGender;
+
+	public GameObject angelov;
+	public GameObject pixel;
+	public GameObject ragnar;
+	public GameObject ikkx;
 	#endregion //Character
 }

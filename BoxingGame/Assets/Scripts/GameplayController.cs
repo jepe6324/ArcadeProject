@@ -10,6 +10,9 @@ public class GameplayController : MonoBehaviour
 	public PlayerStateMachine player1;
 	public PlayerStateMachine player2;
 
+	public Text player1Name;
+	public Text player2Name;
+
 	public Text roundTimerText;
 	public Text bigTextBox;
 
@@ -72,6 +75,8 @@ public class GameplayController : MonoBehaviour
 
 	void IntroUpdate() // Allows both players to complete their intro sequence before starting the match.
 	{
+		player1Name.text = player1.characterName;
+		player2Name.text = player2.characterName;
 		videoPlayer.clip = clips[roundNumber - 1];
 		bigText = "Round " + roundNumber;
 
