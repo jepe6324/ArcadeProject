@@ -260,6 +260,101 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524944958}
   m_CullTransparentMesh: 0
+--- !u!1 &609626176
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 609626177}
+  - component: {fileID: 609626180}
+  - component: {fileID: 609626179}
+  - component: {fileID: 609626178}
+  m_Layer: 5
+  m_Name: Select Your Fighter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &609626177
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609626176}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 745028757}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 16.1, y: -140}
+  m_SizeDelta: {x: 604.49, y: 150.27}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &609626178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609626176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -900027084, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
+--- !u!114 &609626179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609626176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0.9716981, b: 0.9016116, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: 8b495cc3ae9657c44a4c278288dba42a, type: 3}
+    m_FontSize: 84
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 132
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Select Your Fighter
+--- !u!222 &609626180
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609626176}
+  m_CullTransparentMesh: 0
 --- !u!1001 &626757596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -326,11 +421,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1123028795212777745, guid: a3288621d2b695741bd5c100e26953bc,
-        type: 3}
-      propertyPath: audioFiles.Array.data[12].isLooping
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a3288621d2b695741bd5c100e26953bc, type: 3}
@@ -529,6 +619,7 @@ GameObject:
   - component: {fileID: 745028756}
   - component: {fileID: 745028755}
   - component: {fileID: 745028754}
+  - component: {fileID: 745028758}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -609,6 +700,7 @@ RectTransform:
   m_Children:
   - {fileID: 1736655033}
   - {fileID: 937400129}
+  - {fileID: 609626177}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -617,6 +709,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &745028758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 745028753}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8262bb2606954c41869a0fc9f88d9f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onsec: 0.8
+  Switch: 1
+  Punch: {fileID: 609626179}
 --- !u!1 &865787411
 GameObject:
   m_ObjectHideFlags: 0
@@ -1532,11 +1639,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1736655030}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec40d92a2d1f4c24184b95d7dae8977a, type: 3}
+  m_Script: {fileID: 11500000, guid: d8262bb2606954c41869a0fc9f88d9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rawImage: {fileID: 937400130}
-  videoPlayer: {fileID: 1736655032}
+  onsec: 0.8
+  Switch: 1
+  Punch: {fileID: 609626179}
 --- !u!328 &1736655032
 VideoPlayer:
   m_ObjectHideFlags: 0

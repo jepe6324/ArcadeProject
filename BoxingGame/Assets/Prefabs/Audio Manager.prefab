@@ -117,8 +117,8 @@ MonoBehaviour:
     isLooping: 0
     playOnAwake: 0
   - audioName: Title Music
-    audioClip: {fileID: 8300000, guid: 29038230328369d45bf84b6d4d49b3e1, type: 3}
+    audioClip: {fileID: 8300000, guid: 1fde35c87a821974ca1f42e703f09aeb, type: 3}
     volume: 0.497
     source: {fileID: 0}
-    isLooping: 0
+    isLooping: 1
     playOnAwake: 0
