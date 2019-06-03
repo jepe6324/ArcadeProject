@@ -14,6 +14,7 @@ public class Player1Selection : MonoBehaviour
     public string left;
     public string right;
     public string selectionKey;
+    [HideInInspector] public string character1String;
     
 
 
@@ -54,6 +55,26 @@ public class Player1Selection : MonoBehaviour
         if (Input.GetKey(selectionKey))
         {
             playerSelected = true;
+        }
+
+        if (index == 0 && playerSelected == true)
+        {
+            character1String = "Ikkx";
+        }
+
+        else if (index == 1 && playerSelected == true)
+        {
+            character1String = "Angelov";
+        }
+
+        else if (index == 2 && playerSelected == true)
+        {
+            character1String = "Pixel";
+        }
+
+        else if (index == 3 && playerSelected == true)
+        {
+            character1String = "Ragnar";
         }
     }
 }
