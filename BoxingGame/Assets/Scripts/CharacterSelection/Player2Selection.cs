@@ -15,25 +15,52 @@ public class Player2Selection : MonoBehaviour
     public string left;
     public string right;
     public string selectionKey;
+	public string selectionKey2;
     public bool bothSelected = false;
-    Player1Selection player1Selection;
     [HideInInspector] public string character2String;
+	private Player1Selection player1Selection;
+	private string upOrDown;
 
 
-
-    void Update()
-    {
-        if (Input.GetKeyDown(left) && player2Selected == false)
+	void Update()
+	{
+		if (Input.GetKeyDown(left) && player2Selected == false)
         {
-            index++;
-        }
+			index++;
+			AudioManager.PlayMusic("Woosh");
+			if (player1Selection.index == index && player1Selection.playerSelected == true)
+			{
+				index++;
+			}
+			upOrDown = "Up";
+		}
 
         if (Input.GetKeyDown(right) && player2Selected == false)
-        {
-            index--;
-        }
+		{
+			Debug.Log(index);
 
-        if (index < 0)
+			index--;
+			AudioManager.PlayMusic("Woosh");
+			if (player1Selection.index == index && player1Selection.playerSelected == true)
+			{
+				index--;
+			}
+			upOrDown = "Down";
+		}
+
+		if (player1Selection.index == index && player1Selection.playerSelected == true)
+		{
+			if (upOrDown == "Up")
+			{
+				index++;
+			}
+			else
+			{
+				index--;
+			}
+		}
+
+		if (index < 0)
         {
             index = maxIndex;
         }
@@ -55,11 +82,15 @@ public class Player2Selection : MonoBehaviour
             buttonImage.SetActive(false);
         }
 
-        if (Input.GetKey(selectionKey))
-        {
-            player2Selected = true;
+        if (Input.GetKeyDown(selectionKey) || Input.GetKeyDown(selectionKey2))
+		{
+			player2Selected = true;
             buttonImage.GetComponent<Image>().color = Selected;
-        }
+			if (player1Selection.index == index)
+			{
+				player1Selection.index++;
+			}
+		}
 
         if (index == 0 && player2Selected == true)
         {
@@ -99,9 +130,12 @@ public class Player2Selection : MonoBehaviour
 
     private void Start()
     {
+		index = 1;
         Selected.r = 1;
         Selected.g = 1;
         Selected.b = 1;
         Selected.a = 0.5f;
+
+		player1Selection = FindObjectOfType<Player1Selection>();
     }
 }
