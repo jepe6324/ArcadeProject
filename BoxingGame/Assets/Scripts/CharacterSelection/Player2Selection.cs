@@ -28,23 +28,22 @@ public class Player2Selection : MonoBehaviour
         {
 			index++;
 			AudioManager.PlayMusic("Woosh");
-			if (player1Selection.index == index && player1Selection.playerSelected == true)
-			{
-				index++;
-			}
+			//if (player1Selection.index == index && player1Selection.playerSelected == true)
+			//{
+			//	index++;
+			//}
 			upOrDown = "Up";
 		}
 
         if (Input.GetKeyDown(right) && player2Selected == false)
 		{
-			Debug.Log(index);
 
 			index--;
 			AudioManager.PlayMusic("Woosh");
-			if (player1Selection.index == index && player1Selection.playerSelected == true)
-			{
-				index--;
-			}
+			//if (player1Selection.index == index && player1Selection.playerSelected == true)
+			//{
+			//	index--;
+			//}
 			upOrDown = "Down";
 		}
 
@@ -63,12 +62,36 @@ public class Player2Selection : MonoBehaviour
 		if (index < 0)
         {
             index = maxIndex;
-        }
+
+			if (player1Selection.index == index && player1Selection.playerSelected == true)
+			{
+				if (upOrDown == "Up")
+				{
+					index++;
+				}
+				else
+				{
+					index--;
+				}
+			}
+		}
 
         if (index > maxIndex)
         {
             index = 0;
-        }
+
+			if (player1Selection.index == index && player1Selection.playerSelected == true)
+			{
+				if (upOrDown == "Up")
+				{
+					index++;
+				}
+				else
+				{
+					index--;
+				}
+			}
+		}
 
         if (index == characterIndex)
         {
@@ -86,10 +109,10 @@ public class Player2Selection : MonoBehaviour
 		{
 			player2Selected = true;
             buttonImage.GetComponent<Image>().color = Selected;
-			if (player1Selection.index == index)
-			{
-				player1Selection.index++;
-			}
+			//if (player1Selection.index == index)
+			//{
+			//	player1Selection.index++;
+			//}
 		}
 
         if (index == 0 && player2Selected == true)

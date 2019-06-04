@@ -27,7 +27,6 @@ public class PlayerStateMachine : MonoBehaviour
 	{
 		if (name == "Player 1")
 		{
-			Debug.Log(CharacterSelector.player1Character);
 			if (CharacterSelector.player1Character != null)
 			{
 				SetCharacter(CharacterSelector.player1Character);
