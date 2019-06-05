@@ -34,6 +34,7 @@ public class PlayerPunch : PlayerState
 
 	override public void StateExit(PlayerState nextState)
 	{
+		playerAnimator.ResetTrigger(punchID);
 		playerFSM.currentState = nextState;
 		nextState.StateEnter();
 	}

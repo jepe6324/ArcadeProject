@@ -20,6 +20,7 @@ public class SwayBackState : PlayerState
 
 	public override void StateExit(PlayerState nextState)
 	{
+		playerAnimator.ResetTrigger("Evade");
 		SetToWhite();
 		playerFSM.currentState = nextState;
 		nextState.StateEnter();

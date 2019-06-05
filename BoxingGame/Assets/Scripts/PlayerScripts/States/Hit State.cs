@@ -42,6 +42,7 @@ public class HitState : PlayerState
 
 	public override void StateExit(PlayerState nextState)
 	{
+		playerAnimator.ResetTrigger("Hit");
 		SetToWhite();
 		playerFSM.currentState = nextState;
 		nextState.StateEnter();

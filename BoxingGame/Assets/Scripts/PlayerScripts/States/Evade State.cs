@@ -40,6 +40,7 @@ public class EvadeState : PlayerState
 		if (duration <= 0)
 		{
 			StateExit(new PlayerIdle(playerFSM));
+			playerAnimator.ResetTrigger("Evade");
 			return;
 		}
 	}

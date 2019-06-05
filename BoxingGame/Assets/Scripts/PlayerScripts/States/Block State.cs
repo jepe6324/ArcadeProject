@@ -42,6 +42,7 @@ public class BlockState : PlayerState
 
 	public override void StateExit(PlayerState nextState)
 	{
+		playerAnimator.ResetTrigger("Block");
 		playerFSM.currentState = nextState;
 		nextState.StateEnter();
 	}
