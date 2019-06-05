@@ -736,8 +736,9 @@ GameObject:
   m_Component:
   - component: {fileID: 827986698}
   - component: {fileID: 827986697}
+  - component: {fileID: 827986699}
   m_Layer: 0
-  m_Name: IdleChecker
+  m_Name: Scene Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -770,6 +771,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &827986699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 827986696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf7d812cec53e364286ba808d33d2bd9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &865787411
 GameObject:
   m_ObjectHideFlags: 0

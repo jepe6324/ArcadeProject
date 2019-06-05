@@ -9,9 +9,12 @@ public class ReturnToMenu : MonoBehaviour
 	{
 		if (Input.GetKeyDown(KeyCode.Escape))
 		{
-			AudioManager.StopMusic("Background Music");
-			AudioManager.PlayMusic("Title Music");
-			SceneManager.LoadScene("TitleScene");
+            if (SceneManager.GetActiveScene().name == "FightScene")
+            {
+                AudioManager.StopMusic("Background Music");
+                AudioManager.PlayMusic("Title Music");
+            }
+            SceneManager.LoadScene("TitleScene");
 		}
 	}
 }

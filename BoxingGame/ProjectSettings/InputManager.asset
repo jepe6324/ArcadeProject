@@ -74,9 +74,9 @@ InputManager:
     descriptiveName: Makes Player 1 Punch
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: x
+    positiveButton: q
     altNegativeButton: 
-    altPositiveButton: q
+    altPositiveButton: 
     gravity: 0
     dead: 0
     sensitivity: 0
@@ -108,7 +108,7 @@ InputManager:
     negativeButton: 
     positiveButton: z
     altNegativeButton: 
-    altPositiveButton: e
+    altPositiveButton: 
     gravity: 0
     dead: 0
     sensitivity: 0
@@ -124,7 +124,7 @@ InputManager:
     negativeButton: 
     positiveButton: u
     altNegativeButton: 
-    altPositiveButton: v
+    altPositiveButton: 
     gravity: 0
     dead: 0
     sensitivity: 0
